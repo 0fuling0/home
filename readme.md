@@ -109,6 +109,10 @@ APlayer 播放器的版权和使用信息详见 [APlayer GitHub 仓库](https://
 
 Meting.js 音乐插件的版权和使用信息详见 [Meting.js GitHub 仓库](https://github.com/metowolf/MetingJS)。
 
+### 霞鹜文楷字体
+
+Meting.js 音乐插件的版权和使用信息详见 [霞鹜文楷 GitHub 仓库](https://github.com/lxgw/LxgwWenKai)。
+
 ### Twikoo 留言板插件
 
 Twikoo 留言板插件的版权和使用信息详见 [Twikoo GitHub 仓库](https://github.com/imaegoo/twikoo)。
@@ -116,6 +120,8 @@ Twikoo 留言板插件的版权和使用信息详见 [Twikoo GitHub 仓库](http
 ### FontAwesome 图标库
 
 FontAwesome 图标库的版权和使用信息详见 [FontAwesome 官方网站](https://fontawesome.com/license)。
+
+
 
 ## 联系方式
 
