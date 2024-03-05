@@ -25,9 +25,9 @@ window.addEventListener('load', function () {
 document.addEventListener('DOMContentLoaded', function () {
   // 背景图片数组
   const backgroundImages = [
-    'https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/00039-2738354015-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp',
-    'https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/00040-1332967435-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp',
-    'https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/00048-1332967445-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp'
+    'img/00039-2738354015-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp',
+    'img/00040-1332967435-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp',
+    'img/00048-1332967445-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp'
   ];
 
   let currentImageIndex = 0;
@@ -41,13 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
     body.style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
   }
 
-  // 预加载下一张图片
-  function preloadNextImage() {
-    const nextImageIndex = (currentImageIndex + 1) % backgroundImages.length;
-    const img = new Image();
-    img.src = backgroundImages[nextImageIndex];
-  }
-
   // 切换到下一张背景图片
   function nextBackgroundImage() {
     // 循环更新图片索引
@@ -58,17 +51,35 @@ document.addEventListener('DOMContentLoaded', function () {
     updateBackgroundImage();
   }
 
+  // 预加载下一张图片，并等待加载完成后再执行回调
+  function preloadNextImage(callback) {
+    const nextImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+    const img = new Image();
+    
+    // 设置onload事件处理程序
+    img.onload = function() {
+      callback(); // 图片加载完成后执行回调
+    };
+    
+    img.src = backgroundImages[nextImageIndex];
+  }
+
   // 初始化背景，显示第一张图片
   updateBackgroundImage();
 
   // 每隔20秒切换背景图片
-  setInterval(nextBackgroundImage, 20000);
+  setInterval(function() {
+    // 预加载下一张图片，并在加载完成后切换
+    preloadNextImage(nextBackgroundImage);
+  }, 20000);
 
   // 过渡效果结束后移除过渡属性，防止影响后续背景切换
   body.addEventListener('transitionend', function () {
     body.style.transition = '';
   });
 });
+
+
 
 function updateCardStyle() {
   // 获取卡片容器
