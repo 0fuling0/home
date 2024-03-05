@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- 设置页面的元字符集为UTF-8 -->
+  <meta charset="UTF-8">
+  <!-- 设置视口宽度为设备宽度，初始缩放比例为1.0 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 设置页面主题颜色 -->
+  <meta name="theme-color" id="theme-color-meta" content="">
+  <!-- 设置页面描述 -->
+  <meta name="description" content="Fuling Chen - 个人主页">
+  <!-- 设置页面标题 -->
+  <title>Fuling Chen - 个人主页</title>
+  <!-- 引入外部样式表 -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 设置网站图标 -->
+  <link rel="icon" type="image/webp" sizes="64x64" href="https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/favicon.webp">
+  <!-- 引入manifest文件 -->
+  <link rel="manifest" href="manifest.json">
+  <!-- 引入FontAwesome图标库 -->
+  <script src="https://kit.fontawesome.com/d8ae73fc11.js" crossorigin="anonymous"></script>
+  <script src="js/twikoo.all.min.js"></script>
+  <script src="js/APlayer.min.js"></script>
+  <script src="js/Meting2.min.js"></script>
+  <link rel="stylesheet" href="css/APlayer.min.css" />
+  <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>  
+</head>
+
+<body class="light">
+
+  <!-- 加载动画容器 -->
+  <div class="loading-container">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- 头部内容 -->
+  <header>
+    <!-- 个人主页标题 -->
+    <h1>Fuling's Homepage</h1>
+    <!-- 个人格言 -->
+    <p>休言万事转头空，未转头时皆梦。</p>
+  </header>
+
+  <!-- 主要内容容器 -->
+  <main class="container">
+
+
+
+    <!-- 时钟卡片 -->
+    <section class="card clock">
+      <div id="clock"></div>
+      <!-- 一言容器 -->
+      <div id="hitokotoContainer"></div>
+    </section>
+
+    <!-- 个人信息卡片 -->
+    <section class="card profile">
+      <!-- 头像 -->
+      <img src="https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/avatar.webp" alt="头像">
+      <div class="profile-info">
+        <!-- 姓名 -->
+        <h2>Fuling Chen</h2>
+        <!-- 用户名 -->
+        <p>@迷宫猫</p>
+      </div>
+      <!-- 关注和消息按钮 -->
+      <div class="buttons">
+        <a href="https://space.bilibili.com/620545781" target="_blank" class="button follow-button">
+          <i class="fas fa-heart"></i> 关 注
+        </a>
+        <a href="https://message.bilibili.com/?spm_id_from=333.999.0.0#/whisper/mid620545781" target="_blank" class="button message-button">
+          <i class="fas fa-envelope"></i> 消 息
+        </a>
+      </div>
+    </section>
+
+    <!-- 关于我卡片 -->
+    <section class="card">
+      <h3><i class="fas fa-info-circle"></i> 关于我</h3><br>
+      <!-- 个人简介 -->
+      <p>这个人保持低调，热爱简单生活。对于各种事物持平和态度，注重个人空间和独立思考。喜欢追求兴趣爱好，追求内心宁静和平衡。</p>
+    </section>
+
+    <!-- 个人信息卡片 -->
+    <section class="card about">
+      <h3><i class="fas fa-id-card"></i> 个人信息</h3><br>
+      <!-- 个人信息列表 -->
+      <ul>
+        <li>姓名: Fuling Chen</li>
+        <li>职业: ？？？</li>
+        <li>简介: 似乎没什么可说的。</li><br>
+    </section>
+
+    <!-- 个人项目卡片 -->
+    <section class="card projects">
+      <h3><i class="fas fa-laptop-code"></i> 个人项目</h3><br>
+      <!-- 个人项目列表 -->
+      <ul class="project-list">
+        <li class="project">
+          <a href="https://github.com">
+            <i class="fab fa-github"></i>
+            <span>个人主页</span>
+          </a>
+          <p>项目描述: 具备加载效果、背景图轮播、PWA支持、深色模式、时钟、一言格言轮播以及响应式布局的卡片式个人主页。</p>
+        </li>
+        <li class="project">
+          <a href="https://www.fuling.cloudns.org/">
+            <i class="fas fa-desktop"></i>
+            <span>个人博客</span>
+          </a>
+          <p>项目描述: 简单的Hexo博客，使用volantis主题。</p>
+        </li>
+      </ul>
+    </section>
+
+
+    <section class="card">
+      <h3><i class="fa-regular fa-image"></i> 图片展示</h3><br><br>	   
+	   <div class="carousel-card">
+	   	 <button class="next-btn" onclick="nextSlide()">&#10095;</button>	
+		 <button class="prev-btn" onclick="prevSlide()">&#10094;</button>	
+		 <div class="carousel-container">
+		   <img class="carousel-img" src="https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/00014-1978588402-flower%20sea%2C%20jewelry%2C%20flower%2C%20outdoors%2C%20day%2C%20rose%2C%20bush%2C%20sky%2C%20%20cloud%2C%20sunlight%2C%20white%20flower%2C%2Chuge%20flowers.webp" alt="Slide 1">
+		 </div>
+	   </div>
+    </section>   
+
+    <!-- 教育背景卡片 -->
+    <section class="card about">
+      <h3><i class="fas fa-graduation-cap"></i> 教育背景</h3><br>
+      <!-- 教育背景详情 -->
+      <ul>
+        <li>大学: 合肥工业大学</li>
+        <li>专业: 给排水科学与工程</li>
+        <li>年份: 2021 - 至今</li>
+      </ul>
+    </section>
+
+    <!-- 联系方式卡片 -->
+    <section class="card contact">
+      <h3><i class="fas fa-address-card"></i> 联系方式</h3><br>
+      <!-- 联系方式选项 -->
+      <div class="contact-options">
+        <a href="mailto:chen@fuling.cloudns.org">
+          <i class="fas fa-at"></i>
+          <span>电子邮件</span><br>
+        </a>
+        <a href="https://github.com/0fuling0" target="_blank">
+          <i class="fab fa-github"></i>
+          <span>Github</span><br>
+        </a>
+        <a href="https://space.bilibili.com/620545781" target="_blank">
+          <i class="fab fa-bilibili"></i>
+          <span>Bilibili</span>
+        </a>
+      </div>
+    </section>
+
+
+
+	
+    <!-- 网站信息卡片 -->
+    <section class="card about">
+        <h3><i class="fa-solid fa-award"></i> 网站信息</h3><br>
+        <ul>
+            <li><strong>本站总访问量：</strong><span id="busuanzi_value_site_pv"></span> 次</li>
+            <li><strong>本站总访客数：</strong><span id="busuanzi_value_site_uv"></span> 人</li>
+            <li><div id="runtime-info-container"></div></li>			
+        </ul>      
+    </section>
+	
+
+
+
+    <!-- 音乐卡片 -->
+	<section class="card music">
+	  <h3><i class="fas fa-music"></i> 音乐</h3>
+	  <br><br>
+		<div id="aplayer">
+			<meting-js id="8297186297" server="netease" type="playlist" mutex="true" preload="auto" order="random"></meting-js>
+		</div>
+	</section>
+
+    <section class="card">
+	 <h3><i class='fa-solid fa-comments'></i> 留言</h3><br>
+	   <div id="tcomment"></div>
+    </section>
+	
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>&copy; 2024 Fuling Chen. All rights reserved.</p>
+  </footer>
+
+  <!-- 返回顶部、返回底部和切换夜间模式按钮 -->
+  <button id="backToTop" class="back-to-top-button" aria-label="返回顶部"><i class="fas fa-arrow-up"></i></button>
+  <button id="backToBottom" class="back-to-bottom-button" aria-label="返回底部"><i class="fas fa-arrow-down"></i></button>
+  <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="切换夜间模式"><i class="fas fa-moon"></i></button>
+
+  <!-- 引入外部脚本文件 -->
+  <script src="js/script.js" defer></script>
+</body>
+
+</html>
