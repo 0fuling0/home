@@ -1,22 +1,5 @@
 // script.js
 
-document.addEventListener("DOMContentLoaded", function() {
-    // 获取所有带有 class="remove-extension" 的链接
-    var links = document.querySelectorAll(".remove-extension");
-
-    links.forEach(function(link) {
-        // 获取链接的 href 属性值
-        var href = link.getAttribute("href");
-
-        // 如果链接以 .html 结尾，移除 .html 后缀
-        if (href.endsWith(".html")) {
-            href = href.slice(0, -5); // 移除后缀的长度是 ".html" 的长度
-        }
-
-        // 更新链接的 href 属性
-        link.setAttribute("href", href);
-    });
-});
 
 // 显示加载页面
 function showLoading() {
