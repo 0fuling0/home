@@ -8,6 +8,20 @@ body, h1, h2, h3, p, ul {
 }
 /* 结束重置 */
 
+:root {
+  --primary-color: rgba(33, 150, 243, 0.6);
+  --secondary-color: rgba(21, 101, 192, 0.6);
+  --tertiary-color: rgba(13, 71, 161, 0.6);
+  --dark-mode-color: rgba(243, 156, 18, 0.6);
+  --dark-mode-hover: rgba(224, 123, 0, 0.6);
+  --dark-mode-active: rgba(179, 102, 0, 0.6);
+  --font-color: #444;
+}
+
+body.dark-mode {
+  --font-color: #eeeeeede; /* Dark mode text color */
+}
+
 
 /* 全局样式设置，包括背景、字体等 */
 /* 开始全局样式 */
@@ -130,7 +144,8 @@ body.dark-mode .loading-spinner {
 /* 头部样式 */
 /* 开始头部样式 */
 header {
-  padding: 20px; /* 内边距20像素 */
+  padding-top: 8px; /* 上边距 */
+  padding-bottom: 12px; /* 下边距 */
   text-align: center; /* 文本居中对齐 */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* 阴影效果，颜色为黑色透明 */
   background-color: rgba(255, 255, 255, 0.5); /* 半透明白色背景 */
@@ -144,6 +159,25 @@ header {
   transition: transform 0.3s ease-in-out, background-color 0.3s ease; /* 添加过渡效果 */
   box-sizing: border-box; /* 使用border-box盒模型 */
 }
+
+header p.motto {
+    margin-bottom: 5px; /* 根据需要调整上边距的值 */
+}
+
+/* 导航链接样式 */
+header a {
+  color: var(--font-color); /* 设置链接颜色 */
+  text-decoration: none;
+  margin: 0 10px; /* 在链接之间添加间距 */
+  transition: color 0.3s ease; /* 添加颜色过渡效果 */
+}
+
+/* 鼠标悬停时更改链接颜色和添加底部边框效果 */
+header a:hover {
+  color: var(--font-color); /* 更改为你想要的悬停颜色 */
+  border-bottom: 2px solid var(--font-color); /* 添加底部边框效果 */
+}
+
 
 header:hover {
   transform: scale(1.03); /* 悬停时放大1.03倍 */
@@ -200,7 +234,7 @@ body.dark-mode header:hover::before {
 .container {
   max-width: 1300px;
   margin: 20px auto;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* 主要内容区域样式 */
@@ -253,14 +287,7 @@ main {
   }
 }
 
-:root {
-  --primary-color: rgba(33, 150, 243, 0.6);
-  --secondary-color: rgba(21, 101, 192, 0.6);
-  --tertiary-color: rgba(13, 71, 161, 0.6);
-  --dark-mode-color: rgba(243, 156, 18, 0.6);
-  --dark-mode-hover: rgba(224, 123, 0, 0.6);
-  --dark-mode-active: rgba(179, 102, 0, 0.6);
-}
+
 
 /* 卡片样式 */
 .card {
@@ -315,9 +342,11 @@ body.dark-mode .card:hover::before {
   transform: scale(1.03);
 }
 
+
 /* 时钟卡片样式 */
 .clock {
   text-align: center;
+  height: 200px;   
 }
 
 #clock {
@@ -357,8 +386,8 @@ body.dark-mode .profile img {
 }
 
 
-.card.profile {
-  display: flex;
+.card.profile {	
+  display: flex; 
   align-items: center;
 }
 

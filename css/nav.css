@@ -1,0 +1,219 @@
+/* 优化搜索表单样式 */
+.full {
+  width: 100%; /* 使搜索表单更宽 */
+  text-align: center;
+}
+
+
+.searchForm {
+  width: 100%; /* 使搜索表单更宽 */
+  text-align: center;
+  display: flex; /* 将子元素放置在一个 flex 容器中 */
+  align-items: center; /* 在容器中垂直居中对齐子元素 */
+  justify-content: center; /* 在容器中水平居中对齐子元素 */
+}
+
+select, #searchQuery, .searchButton {
+  box-sizing: border-box; /* 设置相同的盒模型 */
+  vertical-align: middle; /* 垂直居中对齐 */
+}
+
+select {
+  margin: 0; /* 去掉下拉框的间距 */
+  border: none; /* 去掉边框 */  
+  padding: 16.6px 8px; /* 调整内边距以改善外观 */
+  border-radius: 12px 0 0 12px; /* 添加边框半径 */
+  background-color: #f1f1f1; /* 添加背景色 */
+  outline: none; /* 去掉选中状态的边框 */
+  cursor: pointer; /* 添加手型指示符 */
+  appearance: menulist;
+}
+
+
+#searchQuery {
+  width: 60%;
+  border: none; /* 去掉边框 */
+  padding: 17px; /* 调整内边距，使输入框更好看 */
+}
+
+.searchButton {
+  margin-left: 0; /* 去掉按钮的左外边距 */
+  padding: 16.2px; /* 调整内边距，使按钮更好看 */
+  cursor: pointer;
+  border: none; /* 去掉边框 */
+  border-radius: 0 12px 12px 0; /* 添加边框半径 */
+  outline: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  transition: var(--searchButton-transition);
+  white-space: nowrap; /* 防止文字换行 */
+}
+
+.searchButton:hover {
+  background-color: var(--secondary-color);
+}
+
+.searchButton:active {
+  background-color: var(--tertiary-color);
+}
+
+body.dark-mode .searchButton {
+  background-color: var(--dark-mode-color);
+  margin-right: 0;
+}
+
+body.dark-mode .searchButton:hover {
+  background-color: var(--dark-mode-hover);
+}
+
+body.dark-mode .searchButton:active {
+  background-color: var(--dark-mode-active);
+}
+
+.searchButton, .searchButton:hover, .searchButton:active, body.dark-mode .searchButton, body.dark-mode .searchButton:hover, body.dark-mode .searchButton:active {
+  text-decoration: none;
+}
+
+/* styles.css */
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: auto; /* Center horizontally */
+    /* Additional styling if needed */
+}
+
+
+.cardItem {
+    flex: 1; /* 占满剩余空间 */
+    display: none;
+    flex-direction: row;
+    padding: 0px auto;
+    /* border: 1px solid #ccc; */
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.cardItem.active {
+    display: flex;	
+    width: 97%; /* 占满整个父容器的宽度 */
+    height: 100%; /* 占满整个父容器的高度 */
+    margin-bottom: 0;
+    margin-left: 3%;	
+}
+
+
+/* 默认的网格布局 */
+.cardItem.active .grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+/* 在小屏幕上，将列数改为适应屏幕宽度 */
+@media screen and (max-width: 600px) {
+  .cardItem.active .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 在中等屏幕上，将列数改为适应屏幕宽度 */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  .cardItem.active .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 在大屏幕上，将列数改为适应屏幕宽度 */
+@media screen and (min-width: 901px) {
+  .cardItem.active .grid-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+
+
+
+.cardItem.active .grid-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+  /* border: 1px solid #ccc; */
+  text-decoration: none;
+  color: var(--font-color);
+  width: 100%;
+  height: 100%;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;  
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none;
+
+  font-size: 14px;
+  margin-top: 0px;
+}
+
+
+
+.navButtons {
+  display: flex;
+  justify-content: center; /* 让按钮居中 */
+  gap: 50px; /* 设置按钮之间的间隔为 10px */
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.navButton {
+    cursor: pointer;
+    padding: 10px 0;
+    border: none;
+    position: relative;
+}
+
+.navButton::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.navButton.current::before,
+body.dark-mode .navButton.current::before {
+    background-color: var(--primary-color);
+}
+
+.navButton:hover::before {
+    background-color: var(--font-color);
+}
+
+.navButton.current {
+    font-weight: bold;
+}
+
+
+
+
+
+
