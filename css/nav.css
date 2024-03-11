@@ -11,9 +11,10 @@
   width: 100%;
   text-align: center;
   display: flex;
-  align-items: center;
+  align-items: stretch; /* 将内部元素拉伸以匹配容器的高度 */
   justify-content: center;
 }
+
 
 .search-input::placeholder {
     font-family: 'LXGWWenKaiGBScreen'; /* 设置字体样式 */
@@ -22,19 +23,18 @@
 
 .custom-select {
   position: relative;
-  width: 6rem;
-  padding: 0 17px;
-  margin-top: 0;
-  margin-bottom: 0;  
+  /* padding: 0 17px; */
+  /* margin-top: 0; */
+  /* margin-bottom: 0;   */
 }
 
 .select-styled {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   border: none;
-  padding: 14.6px 9px;
+  padding: 15px 9px;
   border-radius: 20px 0 0 20px;
   background-color: #fff;
   color: #000;
@@ -52,6 +52,7 @@
   display: none;
 }
 
+/* 默认样式，适用于较大屏幕 */
 .search-options {
   display: none;
   position: absolute;
@@ -63,9 +64,16 @@
   background-color: #fff;
   z-index: 3;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px; /* 添加网格间距，可以根据需要调整 */
-  padding: 8px; /* 添加内边距，可以根据需要调整 */
+  grid-gap: 20px;
 }
+
+/* 在小屏幕上应用不同的样式 */
+@media only screen and (max-width: 600px) {
+  .search-options {
+    grid-template-columns: repeat(2, 1fr); /* 单列布局 */
+  }
+}
+
 
 .dark-mode .search-options {
   background-color: #a0a0a0;
@@ -85,7 +93,9 @@
     width: 60%;
     border: none;
     padding: 17px;
+    outline: none; /* 去掉选中时的边框 */
 }
+
 
 .dark-mode .search-input {
   background-color: #a0a0a0;
