@@ -101,7 +101,7 @@ body.dark-mode .searchButton:active {
 
 .cardItem.active {
     display: flex;	
-    width: 97%; /* 占满整个父容器的宽度 */
+    width: 87%; /* 占满整个父容器的宽度 */
     height: 100%; /* 占满整个父容器的高度 */
     margin-bottom: 0;
     margin-left: 3%;	
@@ -119,7 +119,15 @@ body.dark-mode .searchButton:active {
 }
 
 /* 在小屏幕上，将列数改为适应屏幕宽度 */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 512px) {
+  .cardItem.active .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* 在小屏幕上，将列数改为适应屏幕宽度 */
+@media screen and (min-width: 513px) and (max-width: 600px) {
   .cardItem.active .grid-container {
     grid-template-columns: repeat(3, 1fr);
   }

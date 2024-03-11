@@ -144,7 +144,7 @@ body.dark-mode .loading-spinner {
 /* 头部样式 */
 /* 开始头部样式 */
 header {
-  padding-top: 8px; /* 上边距 */
+  padding-top: 12px; /* 上边距 */
   padding-bottom: 12px; /* 下边距 */
   text-align: center; /* 文本居中对齐 */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* 阴影效果，颜色为黑色透明 */
@@ -161,7 +161,7 @@ header {
 }
 
 header p.motto {
-    margin-bottom: 5px; /* 根据需要调整上边距的值 */
+    margin-bottom: 10px; /* 根据需要调整上边距的值 */
 }
 
 /* 导航链接样式 */
