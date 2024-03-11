@@ -5,76 +5,127 @@
 }
 
 
-.searchForm {
-  width: 100%; /* 使搜索表单更宽 */
+
+
+.search-container {
+  width: 100%;
   text-align: center;
-  display: flex; /* 将子元素放置在一个 flex 容器中 */
-  align-items: center; /* 在容器中垂直居中对齐子元素 */
-  justify-content: center; /* 在容器中水平居中对齐子元素 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-select, #searchQuery, .searchButton {
-  box-sizing: border-box; /* 设置相同的盒模型 */
-  vertical-align: middle; /* 垂直居中对齐 */
-}
-
-select {
-  margin: 0; /* 去掉下拉框的间距 */
-  border: none; /* 去掉边框 */  
-  padding: 16.6px 8px; /* 调整内边距以改善外观 */
-  border-radius: 12px 0 0 12px; /* 添加边框半径 */
-  background-color: #f1f1f1; /* 添加背景色 */
-  outline: none; /* 去掉选中状态的边框 */
-  cursor: pointer; /* 添加手型指示符 */
-  appearance: menulist;
+.search-input::placeholder {
+    font-family: 'LXGWWenKaiGBScreen'; /* 设置字体样式 */
 }
 
 
-#searchQuery {
-  width: 60%;
-  border: none; /* 去掉边框 */
-  padding: 17px; /* 调整内边距，使输入框更好看 */
+.custom-select {
+  position: relative;
+  width: 6rem;
+  padding: 0 17px;
+  margin-top: 0;
+  margin-bottom: 0;  
 }
 
-.searchButton {
-  margin-left: 0; /* 去掉按钮的左外边距 */
-  padding: 16.2px; /* 调整内边距，使按钮更好看 */
-  cursor: pointer;
-  border: none; /* 去掉边框 */
-  border-radius: 0 12px 12px 0; /* 添加边框半径 */
+.select-styled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  padding: 14.6px 9px;
+  border-radius: 20px 0 0 20px;
+  background-color: #fff;
+  color: #000;
   outline: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .select-styled {
+  background-color: #a0a0a0;
+}
+
+.select-styled:after {
+  display: none;
+}
+
+.search-options {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  right: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background-color: #fff;
+  z-index: 3;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px; /* 添加网格间距，可以根据需要调整 */
+  padding: 8px; /* 添加内边距，可以根据需要调整 */
+}
+
+.dark-mode .search-options {
+  background-color: #a0a0a0;
+}
+
+.search-option {
+  padding: 8px;
+  cursor: pointer;
+  color: #000;
+}
+
+.search-option:hover {
+  background-color: var(--hover-color);
+}
+
+.search-input {
+    width: 60%;
+    border: none;
+    padding: 17px;
+}
+
+.dark-mode .search-input {
+  background-color: #a0a0a0;
+}
+
+
+/* 搜索按钮样式 */
+.search-button {
   background-color: var(--primary-color);
   color: #fff;
-  transition: var(--searchButton-transition);
-  white-space: nowrap; /* 防止文字换行 */
+  border: none;
+  padding: 17px;
+  cursor: pointer;
+  border-radius: 0 20px 20px 0;
+  outline: none;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
-.searchButton:hover {
+
+.search-button:hover {
   background-color: var(--secondary-color);
 }
 
-.searchButton:active {
+.search-button:active {
   background-color: var(--tertiary-color);
 }
 
-body.dark-mode .searchButton {
+.dark-mode .search-button {
   background-color: var(--dark-mode-color);
-  margin-right: 0;
 }
 
-body.dark-mode .searchButton:hover {
+.dark-mode .search-button:hover {
   background-color: var(--dark-mode-hover);
 }
 
-body.dark-mode .searchButton:active {
+.dark-mode .search-button:active {
   background-color: var(--dark-mode-active);
 }
 
-.searchButton, .searchButton:hover, .searchButton:active, body.dark-mode .searchButton, body.dark-mode .searchButton:hover, body.dark-mode .searchButton:active {
-  text-decoration: none;
-}
-
-/* styles.css */
 
 .cardContainer {
     display: flex;
@@ -83,7 +134,6 @@ body.dark-mode .searchButton:active {
     justify-content: center;
     width: 100%;
     margin: auto; /* Center horizontally */
-    /* Additional styling if needed */
 }
 
 

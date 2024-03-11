@@ -51,20 +51,60 @@
       <div><div id="clock"></div>
       <!-- 一言容器 -->
       <div id="hitokotoContainer"></div><br></div>	
-		<!-- <label for="searchEngine">选择搜索引擎：</label> -->
-		<!-- 在<select>中添加百度搜索选项 -->
-	<div class="searchForm">	
-		<select id="searchEngine">
-			<option value="https://www.baidu.com/s?wd=">Baidu</option>		
-			<option value="https://www.google.com/search?q=">Google</option>
-			<option value="https://www.bing.com/search?q=">Bing</option>
-			<!-- 添加其他搜索引擎选项 -->
-		</select>
+		<div class="search-container">
+			<div class="custom-select">
+				<div class="select-styled" onclick="toggleOptions()">Google</div>
+				<div class="search-options" id="searchOptions">
+					<div class="search-option" onclick="selectOption('Google')">Google</div>
+					<div class="search-option" onclick="selectOption('Bing')">Bing</div>
+					<div class="search-option" onclick="selectOption('Yahoo')">Yahoo</div>
+					<div class="search-option" onclick="selectOption('DuckDuckGo')">DuckDuckGo</div>
+					<div class="search-option" onclick="selectOption('Baidu')">Baidu</div>
+					<div class="search-option" onclick="selectOption('Yandex')">Yandex</div>
+					<div class="search-option" onclick="selectOption('Ask')">Ask.com</div>
+					<div class="search-option" onclick="selectOption('Aol')">AOL</div>
+					<div class="search-option" onclick="selectOption('WolframAlpha')">Wolfram Alpha</div>
+					<div class="search-option" onclick="selectOption('dogpile')">Dogpile</div>
+				</div>
+			</div>
+			<input type="text" class="search-input" placeholder="输入搜索词">
+			<button class="search-button" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i>&nbsp;</button>
+		</div>
+
+		<script>
+			function toggleOptions() {
+			  var options = document.getElementById('searchOptions');
+			  options.style.display = options.style.display === 'grid' ? 'none' : 'grid';
+			}
+
+			function selectOption(option) {
+				document.querySelector('.select-styled').textContent = option;
+				toggleOptions();
+			}
+
+			function search() {
+				var selectedEngine = document.querySelector('.select-styled').textContent;
+				var searchTerm = document.querySelector('.search-input').value;
+				var searchURLs = {
+					Google: 'https://www.google.com/search?q=',
+					Bing: 'https://www.bing.com/search?q=',
+					Yahoo: 'https://search.yahoo.com/search?p=',
+					DuckDuckGo: 'https://duckduckgo.com/?q=',
+					Baidu: 'https://www.baidu.com/s?wd=',
+					Yandex: 'https://yandex.com/search/?text=',
+					Ask: 'https://www.ask.com/web?q=',
+					Aol: 'https://search.aol.com/aol/search?q=',
+					WolframAlpha: 'https://www.wolframalpha.com/input/?i=',
+					Dogpile: 'https://www.dogpile.com/search/web?q='
+				};
+				var searchURL = searchURLs[selectedEngine] + encodeURIComponent(searchTerm);
+				window.open(searchURL, '_blank');
+			}
+		</script>
+
 		
 
-		<!-- 其他部分保持不变 -->
-		<input type="text" id="searchQuery" placeholder="在这里输入搜索词">
-		<button type="button" class="searchButton" onclick="performSearch()"><i class="fa-solid fa-magnifying-glass"></i>&nbsp;&nbsp;&nbsp;搜&nbsp;索</button>
+
 	
 	</div>
 
@@ -307,19 +347,6 @@
     </div>
 	</section>
 
-	<script>
-	function performSearch() {
-		// 获取选中的搜索引擎和用户输入的搜索词
-		var selectedEngine = document.getElementById("searchEngine").value;
-		var searchQuery = document.getElementById("searchQuery").value;
-
-		// 构建完整的搜索URL
-		var searchUrl = selectedEngine + encodeURIComponent(searchQuery);
-
-		// 在新标签页中打开搜索结果
-		window.open(searchUrl, "_blank");
-	}
-	</script>
 
 
 	
@@ -366,14 +393,18 @@
 	  // 调用这个函数切换到特定的卡片
 	  function switchToCard(newCardNumber) {
 		clearTimer();
-
-		if (newCardNumber !== currentCardNumber) {
-		  startTimer(newCardNumber);
-		}
+		showCard(newCardNumber);
 	  }
+
+	  // 添加点击事件处理程序，直接点击卡片时切换
+	  const cardItems = document.querySelectorAll('.cardItem');
+	  cardItems.forEach(card => {
+		card.addEventListener('click', function () {
+		  const cardNumber = parseInt(this.id.replace('card', ''), 10);
+		  switchToCard(cardNumber);
+		});
+	  });
 	</script>
-
-
 
 
 	<script>
