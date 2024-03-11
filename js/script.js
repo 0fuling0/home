@@ -1,5 +1,15 @@
 // script.js
 
+// 去掉链接中的.html和index.html后缀
+function removeHtmlExtension(url) {
+  // 去掉.html后缀
+  url = url.replace(/\.html$/, '');
+
+  // 去掉index.html后缀
+  url = url.replace(/\/index\.html$/, '/');
+
+  return url;
+}
 
 // 显示加载页面
 function showLoading() {
