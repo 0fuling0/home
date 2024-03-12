@@ -61,7 +61,7 @@
   top: 105%;
   left: 0;
   right: auto;
-  border: 1px solid var(--border-color);
+  border: none;
   border-radius: 12px;
   background-color: #fff;
   z-index: 3;
@@ -94,10 +94,11 @@
 .search-input {
     width: 60%;
     border: none;
-    padding: 17px;
+    padding: 4px 0px 0px 12px;
     outline: none; /* 去掉选中时的边框 */
+    font-size: 16px; /* 设置文本大小，可以根据需要更改值 */
+    line-height: 40px; /* 设置行高，使文本垂直居中，可以根据需要更改值 */
 }
-
 
 .dark-mode .search-input {
   background-color: #a0a0a0;
