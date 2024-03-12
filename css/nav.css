@@ -94,7 +94,7 @@
 .search-input {
     width: 60%;
     border: none;
-    padding: 4px 0px 0px 12px;
+    padding: 2px 0px 0px 12px;
     outline: none; /* 去掉选中时的边框 */
     font-size: 16px; /* 设置文本大小，可以根据需要更改值 */
     line-height: 40px; /* 设置行高，使文本垂直居中，可以根据需要更改值 */
