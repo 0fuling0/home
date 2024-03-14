@@ -1,6 +1,4 @@
-// script.js
-
-
+// common.js
 
 // 显示加载页面
 function showLoading() {
