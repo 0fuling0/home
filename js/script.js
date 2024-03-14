@@ -27,9 +27,13 @@ window.addEventListener('load', function () {
 document.addEventListener('DOMContentLoaded', function () {
   // 背景图片数组
   const backgroundImages = [
-    'img/00039-2738354015-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp',
+    'img/1.jpg',
+    'img/2.jpg',
+    'img/3.jpg',
+    'img/4.jpg'
+    /* 'img/00039-2738354015-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp',
     'img/00040-1332967435-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp',
-    'img/00048-1332967445-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp'
+    'img/00048-1332967445-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp' */
   ];
 
   let currentImageIndex = 0;
