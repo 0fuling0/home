@@ -79,11 +79,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // 初始化背景，显示第一张图片
   updateBackgroundImage();
 
-  // 每隔20秒切换背景图片
+  // 每隔10秒切换背景图片
   setInterval(function() {
     // 预加载下一张图片，并在加载完成后切换
     preloadNextImage(nextBackgroundImage);
-  }, 20000);
+  }, 10000);
 
   // 过渡效果结束后移除过渡属性，防止影响后续背景切换
   body.addEventListener('transitionend', function () {
