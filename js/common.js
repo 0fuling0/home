@@ -29,14 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
     'img/2.jpg',
     'img/3.jpg',
     'img/4.jpg'
-	
-    /* 'img/00039-2738354015-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp',
-    'img/00040-1332967435-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp',
-    'img/00048-1332967445-flower%2C%20outdoors%2C%20day%2C%20bush%2Cnight%20sky%2C%20cloud%2C%20sunlight%2C%20(white%20flower_1.2)%2C%20_lora_add_detail_-3.5_%2Cpure%20color%20background%2Csimple.webp' */
+    // 更多图片路径
   ];
 
   let currentImageIndex = 0;
   const body = document.body;
+
+  // 从localStorage加载上次保存的背景图片索引
+  const savedImageIndex = localStorage.getItem('backgroundImageIndex');
+  if (savedImageIndex !== null) {
+    currentImageIndex = parseInt(savedImageIndex);
+  }
 
   // 更新背景图片
   function updateBackgroundImage() {
@@ -44,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
     body.style.transition = 'background-image 1.5s ease';
     // 设置当前背景图片
     body.style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
+    // 保存当前背景图片索引到localStorage
+    localStorage.setItem('backgroundImageIndex', currentImageIndex);
   }
 
   // 切换到下一张背景图片
@@ -60,12 +65,14 @@ document.addEventListener('DOMContentLoaded', function () {
   function preloadNextImage(callback) {
     const nextImageIndex = (currentImageIndex + 1) % backgroundImages.length;
     const img = new Image();
-    
+
     // 设置onload事件处理程序
     img.onload = function() {
-      callback(); // 图片加载完成后执行回调
+      if (callback) {
+        callback(); // 图片加载完成后执行回调
+      }
     };
-    
+
     img.src = backgroundImages[nextImageIndex];
   }
 
@@ -83,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     body.style.transition = '';
   });
 });
+
 
 
 
