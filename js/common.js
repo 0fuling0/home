@@ -25,10 +25,14 @@ window.addEventListener('load', function () {
 document.addEventListener('DOMContentLoaded', function () {
   // 背景图片数组
   const backgroundImages = [
-    'img/1.jpg',
-    'img/2.jpg',
-    'img/3.jpg',
-    'img/4.jpg'
+    'img/ComfyUI_00122_.png',
+    'img/ComfyUI_00121_.png',
+    'img/ComfyUI_00094_.png',
+    'img/ComfyUI_00086_.png',
+    'img/ComfyUI_00079_.png',
+    'img/ComfyUI_00082_.png',
+    'img/ComfyUI_00085_.png'
+
     // 更多图片路径
   ];
 
