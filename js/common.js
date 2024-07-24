@@ -265,7 +265,7 @@ function adjustFooter() {
   const footerHeight = footer.offsetHeight;
 
   // 计算页面内容的总高度，加上额外的 footer 高度和 10px
-  const totalHeight = headerHeight + mainContainerHeight + footerHeight + 15;
+  const totalHeight = headerHeight + mainContainerHeight + footerHeight + 10;
 
   // 获取窗口可视区域高度
   const windowHeight = document.documentElement.clientHeight;
@@ -273,7 +273,7 @@ function adjustFooter() {
   // 如果窗口高度小于页面内容总高度，表示窗口不足以显示整个网页
   if (windowHeight < totalHeight) {
     // 将footer的bottom样式设置为'-35px'，使其位于页面底部
-    footer.style.bottom = '-35px';
+    footer.style.bottom = '-55px';
   } else {
     // 如果窗口高度不小于页面内容总高度，表示窗口足够显示整个网页
     // 将footer的bottom样式设置为'0'，使其位于页面底部

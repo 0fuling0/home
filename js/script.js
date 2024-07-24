@@ -1,4 +1,4 @@
-function updateCardStyle() {
+/* function updateCardStyle() {
   // 获取卡片容器
   const container = document.querySelector('.container');
 
@@ -31,15 +31,17 @@ updateCardStyle();
 // 在窗口大小变化时实时更新样式
 window.addEventListener('resize', updateCardStyle);
 
-
+ */
 
 let currentIndex = 0;
 const images = [
-  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/00014-1978588402-flower%20sea%2C%20jewelry%2C%20flower%2C%20outdoors%2C%20day%2C%20rose%2C%20bush%2C%20sky%2C%20%20cloud%2C%20sunlight%2C%20white%20flower%2C%2Chuge%20flowers.webp",
-  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/00009-6666-%7B%7B%7Bmasterpiece%7D%7D%7D%2C%20%7B%7B%7Bbest%20quality%7D%7D%7D%2C%20elf%2C%20%7Blong%20pointy%20ears%7D%2C%20%7B%7B%7B%7B%7Bcolored%20skin%7D%7D%7D%7D%7D%2C%20%7B%7B%7B%7B%7B%7B%7Bgreen%20skin%7D%7D%7D%7D%7D%7D%7D%2C%20%7B%7B%7B%7Bgradient%20h.webp",
-  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/00021-4233344997-1girl%2C%20jewelry%2C%20flower%2C%20solo%2C%20black%20hair%2C%20necklace%2C%20long%20hair%2C%20outdoors%2C%20day%2C%20rose%2C%20bush%2C%20sky%2C%20upper%20body%2C%20cloud%2C%20lips%2C%20sunlight.webp",  
-  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/00034-4233345000-1girl%2C%20jewelry%2C%20flower%2C%20solo%2C%20black%20hair%2C%20necklace%2C%20long%20hair%2C%20outdoors%2C%20day%2C%20rose%2C%20bush%2C%20sky%2C%20upper%20body%2C%20cloud%2C%20lips%2C%20sunlight.webp",
-  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/00019-3904537912-flower%20sea%2C%20jewelry%2C%20flower%2C%20outdoors%2C%20day%2C%20rose%2C%20bush%2C%20sky%2C%20%20cloud%2C%20sunlight%2C%20white%20flower%2Chuge%20flowers%2C.webp"
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00122_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00121_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00094_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00086_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00079_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00082_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00085_.webp"
 ];
 
 function showSlide(index) {
@@ -103,3 +105,4 @@ runtimeInfoContainer.innerHTML = `
     <strong>网站运行时间：</strong>
     ${yearString} ${monthString} ${dayString}
 `;
+

@@ -88,10 +88,6 @@ body.dark-mode {
 }
 /* 结束全局样式 */
 
-
-
-/* 加载页面样式 */
-
 /* 开始加载页面样式 */
 .loading-container {
   position: fixed; /* 固定定位，覆盖整个屏幕 */
@@ -99,47 +95,87 @@ body.dark-mode {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5); /* 半透明白色背景 */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)); /* 渐变背景 */
   display: flex; /* 弹性布局，水平垂直居中 */
-  backdrop-filter: blur(35px); /* 模糊背景，可根据需要调整 */
+  backdrop-filter: blur(20px); /* 背景模糊效果 */
   justify-content: center;
   align-items: center;
   z-index: 9999; /* 设置在正常文档流下，位于其他元素之上 */
+  overflow: hidden; /* 防止背景动画溢出 */
+  animation: bgPulse 3s infinite; /* 背景动画 */
+}
+
+.loading-spinner-wrapper {
+  display: flex; /* 弹性布局，垂直方向居中 */
+  flex-direction: column; /* 垂直排列加载指示器和文字 */
+  align-items: center; /* 水平居中对齐 */
 }
 
 .loading-spinner {
-  border: 4px solid rgba(0, 0, 0, 0.3); /* 灰色边框 */
-  border-top: 4px solid #2196F3; /* 蓝色边框，可根据需要修改颜色 */
+  border: 6px solid rgba(0, 0, 0, 0.2); /* 更粗的灰色边框 */
+  border-top: 6px solid #2196F3; /* 更粗的蓝色边框 */
   border-radius: 50%; /* 圆形边框 */
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite; /* 旋转动画，持续1秒，线性无限循环 */
+  width: 60px; /* 较大的尺寸 */
+  height: 60px; /* 较大的尺寸 */
+  animation: spin 1.5s linear infinite; /* 旋转动画 */
+  margin-bottom: 20px; /* 调整与文字的间距 */
 }
 
+/* 旋转动画 */
 @keyframes spin {
   0% { transform: rotate(0deg); } /* 初始旋转角度为0度 */
   100% { transform: rotate(360deg); } /* 完整旋转一圈，角度为360度 */
 }
 
+/* 脉动动画 */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; } /* 初始状态 */
+  50% { transform: scale(1.2); opacity: 0.6; } /* 脉动状态 */
+  100% { transform: scale(1); opacity: 1; } /* 还原状态 */
+}
+
+/* 胶囊动画 */
+.loading-spinner-wrapper {
+  animation: pulse 1.5s ease-in-out infinite; /* 脉动动画 */
+}
+
+/* 背景动画 */
+@keyframes bgPulse {
+  0% { background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)); }
+  50% { background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5)); }
+  100% { background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)); }
+}
+
+/* 加载文字样式 */
+.loading-text {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 15px; /* 调整与加载指示器的间距 */
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
 /* 深色模式下的加载页面样式 */
 body.dark-mode .loading-container {
-  position: fixed; /* 固定定位，覆盖整个屏幕 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* 黑色半透明背景 */
-  display: flex; /* 弹性布局，水平垂直居中 */
-  justify-content: center;
-  align-items: center;
-  z-index: 9999; /* 设置在正常文档流下，位于其他元素之上 */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)); /* 深色渐变背景 */
+  animation: bgPulseDark 3s infinite; /* 背景动画 */
 }
 
 body.dark-mode .loading-spinner {
-  border: 4px solid rgba(255, 255, 255, 0.3); /* 白色边框 */
-  border-top: 4px solid #2196F3; /* 蓝色边框，可根据需要修改颜色 */
+  border: 6px solid rgba(255, 255, 255, 0.2); /* 更粗的白色边框 */
+  border-top: 6px solid #F39C12; /* 更粗的橙色边框 */
 }
+
+/* 深色模式下的背景动画 */
+@keyframes bgPulseDark {
+  0% { background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)); }
+  50% { background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)); }
+  100% { background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)); }
+}
+
 /* 结束加载页面样式 */
+
+
 
 /* 头部样式 */
 /* 开始头部样式 */
@@ -241,52 +277,37 @@ body.dark-mode header:hover::before {
 main {
   padding: 10px;
   background-color: transparent;
+  column-count: 3; /* 默认三列布局 */
+  column-gap: 20px; /* 列之间的间隔 */
 }
 
 /* 使用媒体查询实现响应式布局 */
-/* 在最大宽度为720像素时，将主要内容区域显示为块级元素 */
+/* 在最大宽度为720像素时，将主要内容区域显示为单列 */
 @media (max-width: 720px) {
   main {
-    display: block;
-  }
-
-  /* 卡片样式设为100%宽度 */
-  .card {
-    width: 100%;
-    margin-bottom: 20px; /* 设置卡片间隔 */
+    column-count: 1; /* 单列布局 */
   }
 }
 
-/* 在最小宽度721像素且最大宽度为1024像素时，使用弹性盒子实现两列布局 */
+/* 在最小宽度721像素且最大宽度为1024像素时，使用两列布局 */
 @media (min-width: 721px) and (max-width: 1200px) {
   main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  /* 卡片样式设为每列宽度为50%，减去间隔 */
-  .card {
-    width: calc(50% - 10px);
-    margin-bottom: 20px; /* 设置卡片间隔 */
+    column-count: 2; /* 两列布局 */
   }
 }
 
 /* 新增媒体查询，实现三栏布局，适用于最小宽度1025像素及以上 */
 @media (min-width: 1201px) {
   main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  /* 卡片样式设为每列宽度为33.3333%，减去间隔 */
-  .card {
-    width: calc(33.3333% - 10px);
-    margin-bottom: 20px; /* 设置卡片间隔 */
+    column-count: 3; /* 三列布局 */
   }
 }
 
+/* 卡片样式 */
+.card {
+  break-inside: avoid; /* 防止卡片在列中被断开 */
+  margin-bottom: 20px; /* 设置卡片间隔 */
+}
 
 
 /* 卡片样式 */
@@ -342,6 +363,12 @@ body.dark-mode .card:hover::before {
   transform: scale(1.03);
 }
 
+#hitokotoContainer {
+    display: flex;
+    justify-content: center; /* Centers text horizontally */
+    align-items: center;    /* Centers text vertically */
+    text-align: center;     /* Center text within the container */
+}
 
 /* 时钟卡片样式 */
 .clock {
