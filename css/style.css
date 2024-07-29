@@ -363,20 +363,24 @@ body.dark-mode .card:hover::before {
   transform: scale(1.03);
 }
 
-#hitokotoContainer {
+.hitokoto-container {
     display: flex;
     justify-content: center; /* Centers text horizontally */
     align-items: center;    /* Centers text vertically */
     text-align: center;     /* Center text within the container */
 }
 
-/* 时钟卡片样式 */
 .clock {
   text-align: center;
-  height: 200px;   
+/*   height: 150px;   */ 
 }
 
-#clock {
+.clock-date {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.clock-time {
   font-size: 4rem;
   font-weight: bold;
   color: #333;
@@ -387,15 +391,10 @@ body.dark-mode .card:hover::before {
   justify-content: center;
 }
 
-#date {
-  font-size: 1.5rem;
-  color: #555;
-}
-
-body.dark-mode #clock {
+body.dark-mode .clock-time {
   color: #eee;
 }
-/* 时钟卡片样式结束 */
+
 
 
 
@@ -928,4 +927,283 @@ body.dark-mode .aplayer.aplayer-withlist .aplayer-info,
 div.aplayer-pic  { 
     box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.3); /* Inner shadow on all sides */
 }
+
+/* 主要内容区域样式 */
+.full {
+    column-count: 1; /* 单列布局 */ 
+	}
+
+.search-container {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: stretch; /* 将内部元素拉伸以匹配容器的高度 */
+  justify-content: center;
+}
+
+
+.search-input::placeholder {
+    font-family: 'LXGWWenKaiGBScreen'; /* 设置字体样式 */
+}
+
+
+.custom-select {
+  position: relative;
+  display: flex;  
+  align-items: stretch;   
+  padding: 0px;
+  /* margin-top: 0; */
+  /* margin-bottom: 0;   */
+}
+
+.select-styled {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  border: none;
+  padding: 0px 9px;
+  border-radius: 20px 0 0 20px;
+  background-color: #fff;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .select-styled {
+  background-color: #a0a0a0;
+}
+
+.select-styled:after {
+  display: none;
+}
+
+/* 默认样式，适用于较大屏幕 */
+.search-options {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  right: auto;
+  border: none;
+  border-radius: 12px;
+  background-color: #fff;
+  z-index: 3;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+/* 在小屏幕上应用不同的样式 */
+@media only screen and (max-width: 600px) {
+  .search-options {
+    grid-template-columns: repeat(2, 1fr); /* 单列布局 */
+  }
+}
+
+
+.dark-mode .search-options {
+  background-color: #a0a0a0;
+}
+
+.search-option {
+  padding: 8px;
+  cursor: pointer;
+  color: #000;
+}
+
+.search-option:hover {
+  background-color: var(--hover-color);
+}
+
+.search-input {
+    width: 60%;
+    border: none;
+    padding: 2px 0px 0px 12px;
+    outline: none; /* 去掉选中时的边框 */
+    font-size: 16px; /* 设置文本大小，可以根据需要更改值 */
+    line-height: 40px; /* 设置行高，使文本垂直居中，可以根据需要更改值 */
+}
+
+.dark-mode .search-input {
+  background-color: #a0a0a0;
+}
+
+
+/* 搜索按钮样式 */
+.search-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 17px;
+  cursor: pointer;
+  border-radius: 0 20px 20px 0;
+  outline: none;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+
+.search-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.search-button:active {
+  background-color: var(--tertiary-color);
+}
+
+.dark-mode .search-button {
+  background-color: var(--dark-mode-color);
+}
+
+.dark-mode .search-button:hover {
+  background-color: var(--dark-mode-hover);
+}
+
+.dark-mode .search-button:active {
+  background-color: var(--dark-mode-active);
+}
+
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: auto; /* Center horizontally */
+}
+
+
+.cardItem {
+    flex: 1; /* 占满剩余空间 */
+    display: none;
+    flex-direction: row;
+    padding: 0px auto;
+    /* border: 1px solid #ccc; */
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.cardItem.active {
+    display: flex;	
+    width: 87%; /* 占满整个父容器的宽度 */
+    height: 100%; /* 占满整个父容器的高度 */
+    margin-bottom: 0;
+    margin-left: 3%;	
+}
+
+
+/* 默认的网格布局 */
+.cardItem.active .grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+/* 在小屏幕上，将列数改为适应屏幕宽度 */
+@media screen and (max-width: 512px) {
+  .cardItem.active .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* 在小屏幕上，将列数改为适应屏幕宽度 */
+@media screen and (min-width: 513px) and (max-width: 600px) {
+  .cardItem.active .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 在中等屏幕上，将列数改为适应屏幕宽度 */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  .cardItem.active .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 在大屏幕上，将列数改为适应屏幕宽度 */
+@media screen and (min-width: 901px) {
+  .cardItem.active .grid-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+
+
+
+.cardItem.active .grid-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+  /* border: 1px solid #ccc; */
+  text-decoration: none;
+  color: var(--font-color);
+  width: 100%;
+  height: 100%;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;  
+  object-fit: contain;
+}
+
+
+
+.navButtons {
+  display: flex;
+  justify-content: center; /* 让按钮居中 */
+  gap: 50px; /* 设置按钮之间的间隔为 10px */
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.navButton {
+    cursor: pointer;
+    padding: 10px 0;
+    border: none;
+    position: relative;
+}
+
+.navButton::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.navButton.current::before,
+body.dark-mode .navButton.current::before {
+    background-color: var(--primary-color);
+}
+
+.navButton:hover::before {
+    background-color: var(--font-color);
+}
+
+.navButton.current {
+    font-weight: bold;
+}
+
+
+
+
+
 

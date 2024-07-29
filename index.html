@@ -44,23 +44,23 @@
     <h1>Fuling's Homepage</h1>
     <!-- 个人格言 -->
     <p class="motto">休言万事转头空，未转头时皆梦。</p>		
-	<a href="/"><i class="fa-solid fa-house"></i>主页</a>
-	<a href="/nav"><i class="fa-solid fa-compass"></i>导航</a>
-	<a href="https://www.fuling.cloudns.org/"><i class="fa-solid fa-blog"></i>博客</a>
+
+    <a href="#home" onclick="showSection('homepage')"><i class="fa-solid fa-house"></i>主页</a>
+    <a href="#nav" onclick="showSection('navpage')"><i class="fa-solid fa-compass"></i>导航</a>
+    <a href="https://www.fuling.cloudns.org/"><i class="fa-solid fa-blog"></i>博客</a>
+	
   </header>
 
   <!-- 主要内容容器 -->
   <main class="container">
-
-
-
+    <section id="homepage">
     <!-- 时钟卡片 -->
-    <section class="card clock">
-      <div id="clock"></div>
-      <!-- 一言容器 -->
-      <div id="hitokotoContainer"></div>
+    <section class="card">
+      <div class="clock"></div>
+      <!-- 一言容器 --> 
+      <div class="hitokoto-container"></div>
     </section>
-
+ 
     <!-- 个人信息卡片 -->
     <section class="card profile">
       <!-- 头像 -->
@@ -193,8 +193,416 @@
 	 <h3><i class='fa-solid fa-comments'></i> 留言</h3><br>
 	   <div id="tcomment"></div>
     </section>
+</section>	
+
+
+  <section id="navpage" style="display:none;">
+
+	<!-- 搜索框 -->
+	<section class="card">
+      <div class="clock"></div>
+      <!-- 一言容器 -->
+        <div class="hitokoto-container"></div><br>	
+		<div class="search-container">
+			<div class="custom-select">
+				<div class="select-styled" onclick="toggleOptions()">Google</div>
+				<div class="search-options" id="searchOptions">
+					<div class="search-option" onclick="selectOption('Google')">Google</div>
+					<div class="search-option" onclick="selectOption('Bing')">Bing</div>
+					<div class="search-option" onclick="selectOption('Yahoo')">Yahoo</div>
+					<div class="search-option" onclick="selectOption('DuckDuckGo')">DuckDuckGo</div>
+					<div class="search-option" onclick="selectOption('Baidu')">Baidu</div>
+					<div class="search-option" onclick="selectOption('Yandex')">Yandex</div>
+					<div class="search-option" onclick="selectOption('Ask')">Ask.com</div>
+					<div class="search-option" onclick="selectOption('AOL')">AOL</div>
+					<div class="search-option" onclick="selectOption('WolframAlpha')">Wolfram Alpha</div>
+					<div class="search-option" onclick="selectOption('Dogpile')">Dogpile</div>
+				</div>
+			</div>
+			<input type="text" class="search-input" placeholder="输入搜索词">
+			<button class="search-button" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i>&nbsp;</button>
+		</div>
+
+		<script>
+			function toggleOptions() {
+			  var options = document.getElementById('searchOptions');
+			  options.style.display = options.style.display === 'grid' ? 'none' : 'grid';
+			}
+
+			function selectOption(option) {
+				document.querySelector('.select-styled').textContent = option;
+				toggleOptions();
+			}
+
+			function search() {
+				var selectedEngine = document.querySelector('.select-styled').textContent;
+				var searchTerm = document.querySelector('.search-input').value;
+				var searchURLs = {
+					Google: 'https://www.google.com/search?q=',
+					Bing: 'https://www.bing.com/search?q=',
+					Yahoo: 'https://search.yahoo.com/search?p=',
+					DuckDuckGo: 'https://duckduckgo.com/?q=',
+					Baidu: 'https://www.baidu.com/s?wd=',
+					Yandex: 'https://yandex.com/search/?text=',
+					Ask: 'https://www.ask.com/web?q=',
+					AOL: 'https://search.aol.com/aol/search?q=',
+					WolframAlpha: 'https://www.wolframalpha.com/input/?i=',
+					Dogpile: 'https://www.dogpile.com/search/web?q='
+				};
+				var searchURL = searchURLs[selectedEngine] + encodeURIComponent(searchTerm);
+				window.open(searchURL, '_blank');
+			}
+		</script>
+
+		
+
+
 	
-  </main>
+	</div>
+
+		<div class="cardContainer">
+			<div class="navButtons">
+				<div class="navButton" onclick="switchToCard(1)" onmouseover="startTimer(1)" onmouseout="clearTimer()" data-card="1">影视</div>
+				<div class="navButton" onclick="switchToCard(2)" onmouseover="startTimer(2)" onmouseout="clearTimer()" data-card="2">游戏</div>
+				<div class="navButton" onclick="switchToCard(3)" onmouseover="startTimer(3)" onmouseout="clearTimer()" data-card="3">工具</div>
+				<div class="navButton" onclick="switchToCard(4)" onmouseover="startTimer(4)" onmouseout="clearTimer()" data-card="4">服务</div>
+			</div>
+
+			<div class="cardItem active" id="card1">
+				<!-- <h2>卡片1的内容</h2> -->
+				<div class="grid-container">
+
+
+				<a href="https://www.bilibili.com/" target="_blank" class="grid-item" data-url="https://www.bilibili.com/">
+				  <img class="icon" src="img/nav/a1.ico" alt="Website Icon">
+				  <span>Bilibili</span>
+				</a>
+				
+				<a href="https://www.douyin.com/" target="_blank" class="grid-item" data-url="https://www.douyin.com/">
+				  <img class="icon" src="img/nav/a2.ico" alt="Website Icon">
+				  <span>抖音</span>
+				</a>
+				
+				<a href="https://www.youtube.com/" target="_blank" class="grid-item" data-url="https://www.youtube.com/">
+				  <img class="icon" src="img/nav/a3.ico" alt="Website Icon">
+				  <span>YouTube</span>
+				</a>
+
+
+				
+				<a href="https://ddys.pro/" target="_blank" class="grid-item" data-url="https://ddys.pro/">
+				  <img class="icon" src="img/nav/a4.ico" alt="Website Icon">
+				  <span>低端影视</span>
+				</a>
+
+				<a href="https://www.bdys.me/" target="_blank" class="grid-item" data-url="https://www.bdys.me/">
+				  <img class="icon" src="img/nav/a5.ico" alt="Website Icon">
+				  <span>哔嘀影视</span>
+				</a>
+
+				<a href="http://agedm4.com/" target="_blank" class="grid-item" data-url="http://agedm4.com/">
+				  <img class="icon" src="img/nav/a6.ico" alt="Website Icon">
+				  <span>AGE动漫</span>
+				</a>
+
+				<a href="https://www.qj90.com/" target="_blank" class="grid-item" data-url="https://www.qj90.com/">
+				  <img class="icon" src="img/nav/a7.ico" alt="Website Icon">
+				  <span>全集网</span>
+				</a>
+
+				<a href="https://aqdyjd.com/" target="_blank" class="grid-item" data-url="https://aqdyjd.com/">
+				  <img class="icon" src="img/nav/a8.gif" alt="Website Icon">
+				  <span>电影网</span>
+				</a>
+
+				<a href="https://music.163.com/" target="_blank" class="grid-item" data-url="https://music.163.com/">
+				  <img class="icon" src="img/nav/a9.ico" alt="Website Icon">
+				  <span>网易云音乐</span>
+				</a>
+				
+				<a href="https://v.qq.com/" target="_blank" class="grid-item" data-url="https://v.qq.com/">
+				  <img class="icon" src="img/nav/a10.ico" alt="Website Icon">
+				  <span>腾讯视频</span>
+				</a>
+
+				<a href="https://www.iqiyi.com/" target="_blank" class="grid-item" data-url="https://www.iqiyi.com/">
+				  <img class="icon" src="img/nav/a11.ico" alt="Website Icon">
+				  <span>爱奇艺</span>
+				</a>
+
+				<a href="https://www.youku.com/" target="_blank" class="grid-item" data-url="https://www.youku.com/">
+				  <img class="icon" src="img/nav/a12.png" alt="Website Icon">
+				  <span>优酷</span>
+				</a>
+
+
+
+				<a href="https://www.mgtv.com/" target="_blank" class="grid-item" data-url="https://www.mgtv.com/">
+				  <img class="icon" src="img/nav/a13.ico" alt="Website Icon">
+				  <span>芒果TV</span>
+				</a>
+
+				<a href="https://www.douyu.com/" target="_blank" class="grid-item" data-url="https://www.douyu.com/">
+				  <img class="icon" src="img/nav/a14.png" alt="Website Icon">
+				  <span>斗鱼</span>
+				</a>
+
+				<a href="https://www.huya.com/" target="_blank" class="grid-item" data-url="https://www.huya.com/">
+				  <img class="icon" src="img/nav/a15.ico" alt="Website Icon">
+				  <span>虎牙</span>
+				</a>
+
+
+
+				<a href="https://www.acfun.cn/" target="_blank" class="grid-item" data-url="https://www.acfun.cn/">
+				  <img class="icon" src="img/nav/a16.ico" alt="Website Icon">
+				  <span>AcFun</span>
+				</a>
+
+
+
+				<a href="https://y.qq.com/" target="_blank" class="grid-item" data-url="https://y.qq.com/">
+				  <img class="icon" src="img/nav/a17.ico" alt="Website Icon">
+				  <span>QQ音乐</span>
+				</a>
+
+				<a href="https://www.kugou.com/" target="_blank" class="grid-item" data-url="https://www.kugou.com/">
+				  <img class="icon" src="img/nav/a18.ico" alt="Website Icon">
+				  <span>酷狗</span>
+				</a>
+
+				<a href="https://music.migu.cn/" target="_blank" class="grid-item" data-url="https://music.migu.cn/">
+				  <img class="icon" src="img/nav/a19.ico" alt="Website Icon">
+				  <span>咪咕音乐</span>
+				</a>
+
+				<a href="https://www.qingting.fm/" target="_blank" class="grid-item" data-url="https://www.qingting.fm/">
+				  <img class="icon" src="img/nav/a20.png" alt="Website Icon">
+				  <span>蜻蜓FM</span>
+				</a>
+
+				<a href="http://www.ximalaya.com" target="_blank" class="grid-item" data-url="http://www.ximalaya.com">
+				  <img class="icon" src="img/nav/a21.ico" alt="Website Icon">
+				  <span>喜马拉雅FM</span>
+				</a>
+
+				<a href="https://www.cikeee.cc/" target="_blank" class="grid-item" data-url="https://www.cikeee.cc/">
+				  <img class="icon" src="img/nav/a22.ico" alt="Website Icon">
+				  <span>此刻电影日历</span>
+				</a>
+
+				<a href="https://tv.cctv.com/" target="_blank" class="grid-item" data-url="https://tv.cctv.com/">
+				  <img class="icon" src="img/nav/a23.ico" alt="Website Icon">
+				  <span>央视直播</span>
+				</a>
+
+				<a href="https://www.dy2018.com/" target="_blank" class="grid-item" data-url="https://www.dy2018.com/">
+				  <img class="icon" src="img/nav/a24.ico" alt="Website Icon">
+				  <span>电影天堂</span>
+				</a>
+			</div>
+		</div>
+
+			<div class="cardItem" id="card2">
+				<!-- <h2>卡片2的内容</h2> -->
+				<!-- 你可以在这里添加卡片2的内容 -->
+				<div class="grid-container">
+
+				
+				<a href="https://thebyrut.org/" target="_blank" class="grid-item" data-url="https://thebyrut.org/">
+				  <img class="icon" src="img/nav/b1.png" alt="Website Icon">
+				  <span>BYRUTOR</span>
+				</a>
+
+				<a href="https://freetp.org/" target="_blank" class="grid-item" data-url="https://freetp.org/">
+				  <img class="icon" src="img/nav/b2.png" alt="Website Icon">
+				  <span>FREETP</span>
+				</a>	
+		
+				<a href="https://www.gamer520.com/" target="_blank" class="grid-item" data-url="https://www.gamer520.com/">
+				  <img class="icon" src="img/nav/b3.jpg" alt="Website Icon">
+				  <span>Switch520</span>
+				</a>			
+				
+				<a href="https://www.xygalgame.com/" target="_blank" class="grid-item" data-url="https://www.xygalgame.com/">
+				  <img class="icon" src="img/nav/b4.jpg" alt="Website Icon">
+				  <span>初音的青葱</span>
+				</a>				
+
+				<a href="https://acgyyg.ru/" target="_blank" class="grid-item" data-url="https://acgyyg.ru/">
+				  <img class="icon" src="img/nav/b5.ico" alt="Website Icon">
+				  <span>ACG嘤嘤怪</span>
+				</a>	
+			
+				</div>
+			</div>
+
+			<div class="cardItem" id="card3">
+				<!-- <h2>卡片3的内容</h2> -->
+				<!-- 你可以在这里添加卡片3的内容 -->
+				<div class="grid-container">
+				
+				<a href="https://ss.netnr.com/" target="_blank" class="grid-item" data-url="https://ss.netnr.com/">
+				  <img class="icon" src="img/nav/c1.ico" alt="Website Icon">
+				  <span>脚本服务</span>
+				</a>
+
+				<a href="https://anybt.eth.link/" target="_blank" class="grid-item" data-url="https://anybt.eth.link/">
+				  <img class="icon" src="img/nav/c2.ico" alt="Website Icon">
+				  <span>AnyBT</span>
+				</a>		
+				
+				<a href="https://civitai.com/" target="_blank" class="grid-item" data-url="https://civitai.com/">
+				  <img class="icon" src="img/nav/c3.ico" alt="Website Icon">
+				  <span>CIVITAI</span>
+				</a>	
+	
+				<a href="https://danbooru.donmai.us/" target="_blank" class="grid-item" data-url="https://danbooru.donmai.us/">
+				  <img class="icon" src="img/nav/c4.ico" alt="Website Icon">
+				  <span>Danbooru</span>
+				</a>	
+
+				<a href="https://stock.hostmonit.com/CloudFlareYes" target="_blank" class="grid-item" data-url="https://stock.hostmonit.com/CloudFlareYes">
+				  <img class="icon" src="img/nav/c5.ico" alt="Website Icon">
+				  <span>优选IP</span>
+				</a>
+
+				<a href="https://heroicons.dev/" target="_blank" class="grid-item" data-url="https://heroicons.dev/">
+				  <img class="icon" src="img/nav/c6.svg" alt="Website Icon">
+				  <span>Heroicons</span>
+				</a>					
+				
+				</div>
+			</div>
+
+			<div class="cardItem" id="card4">
+	<!-- 			<h2>卡片4的内容</h2> -->
+				<!-- 你可以在这里添加卡片4的内容 -->
+				<div class="grid-container">
+				
+				<a href="https://vercel.com/" target="_blank" class="grid-item" data-url="https://vercel.com/">
+				  <img class="icon" src="img/nav/d1.ico" alt="Website Icon">
+				  <span>Vercel</span>
+				</a>
+
+				<a href="https://dash.cloudflare.com/" target="_blank" class="grid-item" data-url="https://dash.cloudflare.com/">
+				  <img class="icon" src="img/nav/d2.ico" alt="Website Icon">
+				  <span>Cloudflare</span>
+				</a>					
+		
+				
+				
+				
+				
+				</div>
+			</div>
+    </div>
+	</section>
+
+
+
+	
+	<!-- 在处理卡片切换的<script>标签内 -->
+	<script>
+	  let timer;
+	  let currentCardNumber;
+
+	  function startTimer(cardNumber) {
+		timer = setTimeout(() => showCard(cardNumber), 500);
+	  }
+
+	  function clearTimer() {
+		clearTimeout(timer);
+	  }
+
+	  function showCard(cardNumber) {
+		const cards = document.querySelectorAll('.cardItem');
+		cards.forEach(card => card.classList.remove('active', 'current'));
+
+		const selectedCard = document.getElementById(`card${cardNumber}`);
+		selectedCard.classList.add('active', 'current');
+
+		// 从旧的导航按钮移除 'current' 类
+		const oldNavButton = document.querySelector(`.navButton[data-card="${currentCardNumber}"]`);
+		if (oldNavButton) {
+		  oldNavButton.classList.remove('current');
+		}
+
+		// 将 'current' 类添加到新的导航按钮
+		const newNavButton = document.querySelector(`.navButton[data-card="${cardNumber}"]`);
+		if (newNavButton) {
+		  newNavButton.classList.add('current');
+		}
+
+		// 存储当前卡片编号
+		currentCardNumber = cardNumber;
+	  }
+
+	  // 初始化：给第一个按钮添加 'current' 类
+	  document.querySelector('.navButton[data-card="1"]').classList.add('current');
+	  currentCardNumber = 1; // 设置初始的卡片编号
+
+	  // 调用这个函数切换到特定的卡片
+	  function switchToCard(newCardNumber) {
+		clearTimer();
+		showCard(newCardNumber);
+	  }
+
+	  // 添加点击事件处理程序，直接点击卡片时切换
+	  const cardItems = document.querySelectorAll('.cardItem');
+	  cardItems.forEach(card => {
+		card.addEventListener('click', function () {
+		  const cardNumber = parseInt(this.id.replace('card', ''), 10);
+		  switchToCard(cardNumber);
+		});
+	  });
+	</script>
+
+
+	<script>
+	  document.addEventListener("DOMContentLoaded", function() {
+		var gridItems = document.querySelectorAll('.grid-item');
+
+		gridItems.forEach(function(item) {
+		  item.addEventListener('click', function(event) {
+			event.preventDefault(); // 阻止点击事件的默认行为
+			event.stopPropagation(); // 阻止事件冒泡
+
+			var url = item.getAttribute('data-url');
+			window.open(url, '_blank');
+		  });
+		});
+	  });
+	</script>
+
+
+	
+	<script>
+	  document.addEventListener('DOMContentLoaded', function () {
+		// 获取链接元素
+		var linkElements = document.querySelectorAll('.grid-item');
+		var totalLinks = linkElements.length;
+
+		// 如果链接数不足24个，计算需要添加的占位符数量
+		var placeholdersNeeded = Math.max(0, 24 - totalLinks);
+
+		// 创建占位符
+		for (var i = 0; i < placeholdersNeeded; i++) {
+		  var placeholder = document.createElement('div');
+
+		  // 设置占位符样式和尺寸
+		  placeholder.classList.add('grid-item', 'placeholder');
+		  placeholder.style.backgroundColor = 'transparent'; // 设置占位符颜色
+
+		  // 将占位符插入到卡片的grid-container中
+		  var cardContainer = document.querySelector('.cardItem.active .grid-container');
+		  cardContainer.appendChild(placeholder);
+		}
+	  });
+	</script>
+</section>
+</main>
+
 
   <!-- 页脚 -->
   <footer>
@@ -207,8 +615,66 @@
   <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="切换夜间模式"><i class="fas fa-moon"></i></button>
 
   <!-- 引入外部脚本文件 -->
+
   <script src="js/script.js" defer></script>
-  <script src="js/common.js" defer></script>
+
+    <script>
+        function showSection(sectionId) {
+            // 隐藏特定的 section
+            const sectionsToHide = ['homepage', 'navpage'];
+            sectionsToHide.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) {
+                    section.style.display = 'none';
+                }
+            });
+
+            // 显示指定的 section
+            const sectionToShow = document.getElementById(sectionId);
+            if (sectionToShow) {
+                sectionToShow.style.display = 'block';
+            } else {
+                console.log(`Section with id ${sectionId} not found.`);
+            }
+
+            // 根据 sectionId 设置 main 的 column-count
+            const mainElement = document.querySelector('main');
+            if (sectionId === 'navpage') {
+                mainElement.style.columnCount = '1';
+            } else {
+                mainElement.style.columnCount = ''; // 或者你想要的默认值
+            }
+
+            // 调整 footer 位置
+            adjustFooter();
+        }
+
+        function adjustFooter() {
+            // 这里可以添加调整 footer 位置的逻辑
+            console.log('Footer adjusted');
+        }
+
+        function init() {
+            // 获取地址栏中的哈希
+            const hash = window.location.hash.substring(1); // 去掉 #
+            
+            // 显示相应的 section
+            if (hash === 'nav' || hash === 'home') {
+                showSection(hash + 'page');
+            } else {
+                showSection('homepage'); // 默认显示 homepage
+            }
+        }
+
+        // 初始化时检查地址栏哈希
+        init();
+
+        // 在地址栏哈希变化时重新检查
+        window.addEventListener('hashchange', init);
+    </script>
+
+
+
 </body>
 
 </html>
