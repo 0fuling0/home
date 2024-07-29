@@ -618,60 +618,80 @@
 
   <script src="js/script.js" defer></script>
 
-    <script>
-        function showSection(sectionId) {
-            // 隐藏特定的 section
-            const sectionsToHide = ['homepage', 'navpage'];
-            sectionsToHide.forEach(id => {
-                const section = document.getElementById(id);
-                if (section) {
-                    section.style.display = 'none';
-                }
-            });
-
-            // 显示指定的 section
-            const sectionToShow = document.getElementById(sectionId);
-            if (sectionToShow) {
-                sectionToShow.style.display = 'block';
-            } else {
-                console.log(`Section with id ${sectionId} not found.`);
+<script>
+    function showSection(sectionId) {
+        // 隐藏特定的 section
+        const sectionsToHide = ['homepage', 'navpage'];
+        sectionsToHide.forEach(id => {
+            const section = document.getElementById(id);
+            if (section) {
+                section.style.display = 'none';
             }
+        });
 
-            // 根据 sectionId 设置 main 的 column-count
-            const mainElement = document.querySelector('main');
-            if (sectionId === 'navpage') {
-                mainElement.style.columnCount = '1';
-            } else {
-                mainElement.style.columnCount = ''; // 或者你想要的默认值
-            }
-
-            // 调整 footer 位置
-            adjustFooter();
+        // 显示指定的 section
+        const sectionToShow = document.getElementById(sectionId);
+        if (sectionToShow) {
+            sectionToShow.style.display = 'block';
+            updateHeaderText(sectionId);
+        } else {
+            console.log(`Section with id ${sectionId} not found.`);
         }
 
-        function adjustFooter() {
-            // 这里可以添加调整 footer 位置的逻辑
-            console.log('Footer adjusted');
+        // 根据 sectionId 设置 main 的 column-count
+        const mainElement = document.querySelector('main');
+        if (sectionId === 'navpage') {
+            mainElement.style.columnCount = '1';
+        } else {
+            mainElement.style.columnCount = ''; // 或者你想要的默认值
         }
 
-        function init() {
-            // 获取地址栏中的哈希
-            const hash = window.location.hash.substring(1); // 去掉 #
-            
-            // 显示相应的 section
-            if (hash === 'nav' || hash === 'home') {
-                showSection(hash + 'page');
-            } else {
-                showSection('homepage'); // 默认显示 homepage
+        // 调整 footer 位置
+        adjustFooter();
+    }
+
+    function updateHeaderText(sectionId) {
+        const headerTextElement = document.querySelector('header h1');
+        if (headerTextElement) {
+            switch(sectionId) {
+                case 'homepage':
+                    headerTextElement.textContent = "Fuling's Homepage";
+                    break;
+                case 'navpage':
+                    headerTextElement.textContent = "Fuling's Navigation";
+                    break;
+                // Add more cases as needed for other sections
+                default:
+                    headerTextElement.textContent = "Fuling's Homepage";
+                    break;
             }
         }
+    }
 
-        // 初始化时检查地址栏哈希
-        init();
+    function adjustFooter() {
+        // 这里可以添加调整 footer 位置的逻辑
+        console.log('Footer adjusted');
+    }
 
-        // 在地址栏哈希变化时重新检查
-        window.addEventListener('hashchange', init);
-    </script>
+    function init() {
+        // 获取地址栏中的哈希
+        const hash = window.location.hash.substring(1); // 去掉 #
+        
+        // 显示相应的 section
+        if (hash === 'nav' || hash === 'home') {
+            showSection(hash + 'page');
+        } else {
+            showSection('homepage'); // 默认显示 homepage
+        }
+    }
+
+    // 初始化时检查地址栏哈希
+    init();
+
+    // 在地址栏哈希变化时重新检查
+    window.addEventListener('hashchange', init);
+</script>
+
 
 
 
