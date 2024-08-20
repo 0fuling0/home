@@ -35,13 +35,13 @@ window.addEventListener('resize', updateCardStyle);
 
 let currentIndex = 0;
 const images = [
-  "https://source.fuling.cloudns.org/img/ComfyUI_00122_.webp",
-  "https://source.fuling.cloudns.org/img/ComfyUI_00121_.webp",
-  "https://source.fuling.cloudns.org/img/ComfyUI_00094_.webp",
-  "https://source.fuling.cloudns.org/img/ComfyUI_00086_.webp",
-  "https://source.fuling.cloudns.org/img/ComfyUI_00079_.webp",
-  "https://source.fuling.cloudns.org/img/ComfyUI_00082_.webp",
-  "https://source.fuling.cloudns.org/img/ComfyUI_00085_.webp"
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00122_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00121_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00094_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00086_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00079_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00082_.webp",
+  "https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/ComfyUI_00085_.webp"
 ];
 
 function showSlide(index) {
