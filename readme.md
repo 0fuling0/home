@@ -1,7 +1,7 @@
 # Fuling Chen's Personal Website
 
 
-<p align="center"><img src="https://cdn.jsdelivr.net/gh/0fuling0/mysource@main/img/myhomepage.webp" alt="My Homepage"></p>
+<p align="center"><img src="https://source.fuling.cloudns.org/img/myhomepage.webp" alt="My Homepage"></p>
 
 
 欢迎来到 Fuling Chen 的个人主页！这个项目是一次实验性的尝试，通过AI技术帮助作者在几乎没有HTML、CSS和JavaScript基础的情况下创建了一个独特而个性化的个人网站。以下是该项目的详细功能和样式说明：
