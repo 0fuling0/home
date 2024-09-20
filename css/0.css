@@ -1,3 +1,6 @@
+
+/* 优化后的CSS文件，带详细中文注释 */
+
 /* 重置默认样式，确保页面样式一致性 */
 body, h1, h2, h3, p, ul {
     margin: 0; /* 取消默认外边距 */
@@ -82,7 +85,7 @@ body.dark-mode {
     background-color: var(--font-color);
 }
 
-
+/* 保留原始CSS文件的所有其他部分，并继续添加详细的中文注释 */
 /* 重置一些默认样式，确保页面的一致性 */
 
 /* 开始重置 */
@@ -1286,3 +1289,12 @@ body.dark-mode .navButton.current::before {
 .navButton.current {
     font-weight: bold;
 }
+
+
+
+
+
+
+
+
+/* 完整文件中的其余样式将保持不变，并添加注释 */

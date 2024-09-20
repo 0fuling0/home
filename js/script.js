@@ -40,7 +40,12 @@ let autoSlideInterval;
 
 // 页面加载完成后执行的操作
 window.addEventListener('load', function () {
-  hideLoading(); // 隐藏加载页面
+  const loadTime = performance.now(); // 获取页面加载时间
+  if (loadTime < 1000) {
+    setTimeout(hideLoading, 500); // 延迟0.5秒隐藏加载页面
+  } else {
+    hideLoading(); // 正常隐藏加载页面
+  }
   adjustFooter(); // 调整footer位置
 });
 
@@ -67,6 +72,7 @@ function showLoading() {
 function hideLoading() {
   document.querySelector('.loading-container').style.display = 'none';
 }
+
 
 /******************** Footer位置调整 ********************/
 
