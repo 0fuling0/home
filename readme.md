@@ -136,7 +136,7 @@ FontAwesome 图标库的版权和使用信息详见 [FontAwesome 官方网站](h
 
 ## 访问我的个人主页
 
-[home.fuling.cloudns.org](https://home.fuling.cloudns.org)
+[fuling.cloudns.org/home](https://fuling.cloudns.org/home)
 
 
 ## 版权和免责声明
