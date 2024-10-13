@@ -405,3 +405,187 @@ twikoo.init({
   el: '#tcomment', // 容器元素
   // 其他可选配置项
 });
+
+
+function showSection(sectionId) {
+    // 隐藏特定的 section
+    const sectionsToHide = ['homepage', 'navpage'];
+    sectionsToHide.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) {
+            section.style.display = 'none';
+        }
+    });
+
+    // 显示指定的 section
+    const sectionToShow = document.getElementById(sectionId);
+    if (sectionToShow) {
+        sectionToShow.style.display = 'block';
+        updateHeaderText(sectionId);
+    } else {
+        console.log(`Section with id ${sectionId} not found.`);
+    }
+
+    // 根据 sectionId 设置 main 的 column-count
+    const mainElement = document.querySelector('main');
+    mainElement.style.columnCount = (sectionId === 'navpage') ? '1' : ''; // 或者你想要的默认值
+
+    // 调整 footer 位置
+    adjustFooter();
+}
+
+function updateHeaderText(sectionId) {
+    const headerTextElement = document.querySelector('header h1');
+    if (headerTextElement) {
+        switch (sectionId) {
+            case 'homepage':
+                headerTextElement.textContent = "Fuling's Homepage";
+                break;
+            case 'navpage':
+                headerTextElement.textContent = "Fuling's Navigation";
+                break;
+            // Add more cases as needed for other sections
+            default:
+                headerTextElement.textContent = "Fuling's Homepage";
+                break;
+        }
+    }
+}
+
+
+
+function init() {
+    // 获取地址栏中的哈希
+    const hash = window.location.hash.substring(1); // 去掉 #
+    
+    // 显示相应的 section
+    if (hash === 'nav' || hash === 'home') {
+        showSection(hash + 'page');
+    } else {
+        showSection('homepage'); // 默认显示 homepage
+    }
+}
+
+// 初始化时检查地址栏哈希
+init();
+
+// 在地址栏哈希变化时重新检查
+window.addEventListener('hashchange', init);
+
+let timer;
+let currentCardNumber;
+
+function startTimer(cardNumber) {
+    timer = setTimeout(() => showCard(cardNumber), 500);
+}
+
+function clearTimer() {
+    clearTimeout(timer);
+}
+
+function showCard(cardNumber) {
+    const cards = document.querySelectorAll('.cardItem');
+    cards.forEach(card => card.classList.remove('active', 'current'));
+
+    const selectedCard = document.getElementById(`card${cardNumber}`);
+    selectedCard.classList.add('active', 'current');
+
+    // 从旧的导航按钮移除 'current' 类
+    const oldNavButton = document.querySelector(`.navButton[data-card="${currentCardNumber}"]`);
+    if (oldNavButton) {
+        oldNavButton.classList.remove('current');
+    }
+
+    // 将 'current' 类添加到新的导航按钮
+    const newNavButton = document.querySelector(`.navButton[data-card="${cardNumber}"]`);
+    if (newNavButton) {
+        newNavButton.classList.add('current');
+    }
+
+    // 存储当前卡片编号
+    currentCardNumber = cardNumber;
+}
+
+// 初始化：给第一个按钮添加 'current' 类
+document.querySelector('.navButton[data-card="1"]').classList.add('current');
+currentCardNumber = 1; // 设置初始的卡片编号
+
+// 调用这个函数切换到特定的卡片
+function switchToCard(newCardNumber) {
+    clearTimer();
+    showCard(newCardNumber);
+}
+
+// 添加点击事件处理程序，直接点击卡片时切换
+const cardItems = document.querySelectorAll('.cardItem');
+cardItems.forEach(card => {
+    card.addEventListener('click', function () {
+        const cardNumber = parseInt(this.id.replace('card', ''), 10);
+        switchToCard(cardNumber);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var gridItems = document.querySelectorAll('.grid-item');
+
+    gridItems.forEach(function (item) {
+        item.addEventListener('click', function (event) {
+            event.preventDefault(); // 阻止点击事件的默认行为
+            event.stopPropagation(); // 阻止事件冒泡
+
+            var url = item.getAttribute('data-url');
+            window.open(url, '_blank');
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // 获取链接元素
+    var linkElements = document.querySelectorAll('.grid-item');
+    var totalLinks = linkElements.length;
+
+    // 如果链接数不足24个，计算需要添加的占位符数量
+    var placeholdersNeeded = Math.max(0, 24 - totalLinks);
+
+    // 创建占位符
+    for (var i = 0; i < placeholdersNeeded; i++) {
+        var placeholder = document.createElement('div');
+
+        // 设置占位符样式和尺寸
+        placeholder.classList.add('grid-item', 'placeholder');
+        placeholder.style.backgroundColor = 'transparent'; // 设置占位符颜色
+
+        // 将占位符插入到卡片的 grid-container 中
+        var cardContainer = document.querySelector('.cardItem.active .grid-container');
+        cardContainer.appendChild(placeholder);
+    }
+});
+
+function toggleOptions() {
+    var options = document.getElementById('searchOptions');
+    options.style.display = options.style.display === 'grid' ? 'none' : 'grid';
+}
+
+function selectOption(option) {
+    document.querySelector('.select-styled').textContent = option;
+    toggleOptions();
+}
+
+function search() {
+    var selectedEngine = document.querySelector('.select-styled').textContent;
+    var searchTerm = document.querySelector('.search-input').value;
+    var searchURLs = {
+        Google: 'https://www.google.com/search?q=',
+        Bing: 'https://www.bing.com/search?q=',
+        Yahoo: 'https://search.yahoo.com/search?p=',
+        DuckDuckGo: 'https://duckduckgo.com/?q=',
+        Baidu: 'https://www.baidu.com/s?wd=',
+        Yandex: 'https://yandex.com/search/?text=',
+        Ask: 'https://www.ask.com/web?q=',
+        AOL: 'https://search.aol.com/aol/search?q=',
+        WolframAlpha: 'https://www.wolframalpha.com/input/?i=',
+        Dogpile: 'https://www.dogpile.com/search/web?q='
+    };
+    var searchURL = searchURLs[selectedEngine] + encodeURIComponent(searchTerm);
+    window.open(searchURL, '_blank');
+}
