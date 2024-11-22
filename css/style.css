@@ -304,9 +304,9 @@ body.dark-mode .loading-spinner:after {
 /* 头部样式 */
 /* 开始头部样式 */
 header {
-    padding-top: 12px;
+    padding-top: 3px;
     /* 上边距 */
-    padding-bottom: 12px;
+    padding-bottom: 9px;
     /* 下边距 */
     text-align: center;
     /* 文本居中对齐 */
@@ -985,6 +985,10 @@ body.dark-mode footer:hover::before {
     }
 }
 
+.tk-footer {
+    display: none !important;
+}
+
 /* Light Mode Styles */
 .el-button {
     border-radius: 12px;
@@ -1051,7 +1055,9 @@ body.dark-mode .el-button--primary.is-disabled:hover {
 .aplayer {
     height: 100% !important;
 }
-
+.aplayer .aplayer-list ol li {
+    border-top: none !important;
+}
 .aplayer,
 .aplayer .aplayer-list ol li.aplayer-list-light,
 .aplayer .aplayer-lrc:before,

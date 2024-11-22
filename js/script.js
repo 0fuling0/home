@@ -31,18 +31,11 @@ let backgroundImageInterval;
 
 // 页面加载时的事件处理
 window.addEventListener('load', function () {
-    const loadTime = performance.now();
-    if (loadTime < 1000) {
-        setTimeout(hideLoading, 500);
-    } else {
-        hideLoading();
-    }
     adjustFooter();
 });
 
 // DOM内容加载完成时的事件处理
 document.addEventListener('DOMContentLoaded', function () {
-    showLoading();
     setInitialDarkMode();
     updateClock();
     updateRuntimeInfo();
@@ -51,12 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
     initHitokoto();
     startAutoSlide();
     backgroundImageInterval = setInterval(nextBackgroundImage, 10000);
+	hideLoading();
 });
 
 // 显示加载动画
 function showLoading() {
     document.querySelector('.loading-container').style.display = 'flex';
 }
+showLoading();
 
 // 隐藏加载动画
 function hideLoading() {
@@ -434,8 +429,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var placeholder = document.createElement('div');
         placeholder.classList.add('grid-item', 'placeholder');
         placeholder.style.backgroundColor = 'transparent';
-        var cardContainer = document.querySelector('.cardItem.active .grid-container');
-        cardContainer.appendChild(placeholder);
     }
 });
 
