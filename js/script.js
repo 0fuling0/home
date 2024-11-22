@@ -434,8 +434,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var placeholder = document.createElement('div');
         placeholder.classList.add('grid-item', 'placeholder');
         placeholder.style.backgroundColor = 'transparent';
-        var cardContainer = document.querySelector('.cardItem.active .grid-container');
-        cardContainer.appendChild(placeholder);
     }
 });
 
