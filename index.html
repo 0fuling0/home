@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (location.hostname !== 'localhost' && location.protocol !== 'file:') {
+            document.head.insertAdjacentHTML('beforeend', '<base href="/home/">');
+        }
+    </script>
+    <meta name="theme-color" id="theme-color-meta" content="">
+    <meta name="description" content="Fuling Chen - 个人主页">
+    <title>Fuling Chen - 个人主页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/APlayer.min.css" />
+    <link rel="icon" type="image/webp" sizes="64x64"
+        href="https://gcore.jsdelivr.net/gh/0fuling0/mysource@main/img/favicon.webp">
+    <script defer src="https://kit.fontawesome.com/d8ae73fc11.js" crossorigin="anonymous"></script>
+    <script defer src="js/twikoo.all.min.js"></script>
+    <script defer src="js/APlayer.min.js"></script>
+    <script defer src="js/Meting2.min.js"></script>
+    <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+</head>
+
+<body class="light">
+    <div class="loading-container">
+        <div class="loading-spinner-wrapper">
+            <div class="loading-spinner"></div>
+            <div class="loading-text"></div>
+        </div>
+    </div>
+
+    <header>
+        <h1>Fuling's Homepage</h1>
+        <p class="motto">休言万事转头空，未转头时皆梦。</p>
+        <a href="https://www.fuling.me/"><i class="fa-solid fa-blog"></i>博客</a>
+        <a href="#home" onclick="showSection('homepage')"><i class="fa-solid fa-house"></i>主页</a>
+        <a href="#nav" onclick="showSection('navpage')"><i class="fa-solid fa-compass"></i>导航</a>
+    </header>
+
+    <main class="container">
+        <section id="homepage">
+            <section class="card">
+                <div class="clock"></div>
+                <div class="hitokoto-container"></div>
+            </section>
+
+            <section class="card profile">
+                <img src="https://gcore.jsdelivr.net/gh/0fuling0/mysource@main/img/avatar.webp" alt="头像">
+                <div class="profile-info">
+                    <h2>Fuling Chen</h2>
+                    <p>@迷宫猫</p>
+                </div>
+                <div class="buttons">
+                    <a href="https://space.bilibili.com/620545781" target="_blank" class="button follow-button">
+                        <i class="fas fa-heart"></i> 关 注
+                    </a>
+                    <a href="https://message.bilibili.com/?spm_id_from=333.999.0.0#/whisper/mid620545781"
+                        target="_blank" class="button message-button">
+                        <i class="fas fa-envelope"></i> 消 息
+                    </a>
+                </div>
+            </section>
+
+            <section class="card">
+                <h3><i class="fas fa-info-circle"></i> 关于我</h3><br>
+                <p>这个人保持低调，热爱简单生活。对于各种事物持平和态度，注重个人空间和独立思考。喜欢追求兴趣爱好，追求内心宁静和平衡。</p>
+            </section>
+
+            <section class="card about">
+                <h3><i class="fas fa-id-card"></i> 个人信息</h3><br>
+                <ul>
+                    <li>姓名: Fuling Chen</li>
+                    <li>职业: ？？？</li>
+                    <li>简介: 似乎没什么可说的。</li><br>
+                </ul>
+            </section>
+
+            <section class="card projects">
+                <h3><i class="fas fa-laptop-code"></i> 个人项目</h3><br>
+                <ul class="project-list">
+                    <li class="project">
+                        <a href="https://www.fuling.me/home/">
+                            <i class="fab fa-github"></i>
+                            <span>个人主页</span>
+                        </a>
+                        <p>项目描述: 具备加载效果、背景图轮播、PWA支持、深色模式、时钟、一言格言轮播以及响应式布局的卡片式个人主页。</p>
+                    </li>
+                    <li class="project">
+                        <a href="https://www.fuling.me/">
+                            <i class="fas fa-desktop"></i>
+                            <span>个人博客</span>
+                        </a>
+                        <p>项目描述: 简单的Hexo博客，使用volantis主题。</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h3><i class="fa-regular fa-image"></i> 图片展示</h3><br><br>
+                <div class="carousel-card">
+                    <button class="next-btn" onclick="nextSlide()">❯</button>
+                    <button class="prev-btn" onclick="prevSlide()">❮</button>
+                    <div class="carousel-container">
+                        <img class="carousel-img">
+                    </div>
+                </div>
+            </section>
+
+            <section class="card about">
+                <h3><i class="fas fa-graduation-cap"></i> 教育背景</h3><br>
+                <ul>
+                    <li>大学: 合肥工业大学</li>
+                    <li>专业: 给排水科学与工程</li>
+                    <li>年份: 2021 - 至今</li>
+                </ul>
+            </section>
+
+            <section class="card contact">
+                <h3><i class="fas fa-address-card"></i> 联系方式</h3><br>
+                <div class="contact-options">
+                    <a href="mailto:chen@fuling.me">
+                        <i class="fas fa-at"></i>
+                        <span>电子邮件</span><br>
+                    </a>
+                    <a href="https://github.com/0fuling0" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>Github</span><br>
+                    </a>
+                    <a href="https://space.bilibili.com/620545781" target="_blank">
+                        <i class="fab fa-bilibili"></i>
+                        <span>Bilibili</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="card about">
+                <h3><i class="fa-solid fa-award"></i> 网站信息</h3><br>
+                <ul>
+                    <li><strong>本站总访问量：</strong><span id="busuanzi_value_site_pv"></span> 次</li>
+                    <li><strong>本站总访客数：</strong><span id="busuanzi_value_site_uv"></span> 人</li>
+                    <li>
+                        <div id="runtime-info-container"></div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="card music">
+                <h3><i class="fas fa-music"></i> 音乐</h3>
+                <br><br>
+                <div id="aplayer">
+                    <meting-js id="8297186297" server="netease" type="playlist" mutex="true" preload="auto"
+                        order="random"></meting-js>
+                </div>
+            </section>
+
+            <section class="card">
+                <h3><i class='fa-solid fa-comments'></i> 留言</h3><br>
+                <div id="tcomment"></div>
+            </section>
+        </section>
+
+        <section id="navpage" style="display:none;">
+            <section class="card">
+                <div class="clock"></div>
+                <div class="hitokoto-container"></div><br>
+                <div class="search-container">
+                    <div class="custom-select">
+                        <div class="select-styled" onclick="toggleOptions()">Google</div>
+                        <div class="search-options" id="searchOptions">
+                            <div class="search-option" onclick="selectOption('Google')">Google</div>
+                            <div class="search-option" onclick="selectOption('Bing')">Bing</div>
+                            <div class="search-option" onclick="selectOption('Yahoo')">Yahoo</div>
+                            <div class="search-option" onclick="selectOption('DuckDuckGo')">DuckDuckGo</div>
+                            <div class="search-option" onclick="selectOption('Baidu')">Baidu</div>
+                            <div class="search-option" onclick="selectOption('Yandex')">Yandex</div>
+                            <div class="search-option" onclick="selectOption('Ask')">Ask.com</div>
+                            <div class="search-option" onclick="selectOption('AOL')">AOL</div>
+                            <div class="search-option" onclick="selectOption('WolframAlpha')">Wolfram Alpha</div>
+                            <div class="search-option" onclick="selectOption('Dogpile')">Dogpile</div>
+                        </div>
+                    </div>
+                    <input type="text" class="search-input" placeholder="输入搜索词">
+                    <button class="search-button" onclick="search()"><i
+                            class="fa-solid fa-magnifying-glass"></i> </button>
+                </div>
+
+
+                <div class="cardContainer">
+                    <div class="navButtons">
+                        <div class="navButton" onclick="switchToCard(1)" onmouseover="startTimer(1)"
+                            onmouseout="clearTimer()" data-card="1">影视</div>
+                        <div class="navButton" onclick="switchToCard(2)" onmouseover="startTimer(2)"
+                            onmouseout="clearTimer()" data-card="2">游戏</div>
+                        <div class="navButton" onclick="switchToCard(3)" onmouseover="startTimer(3)"
+                            onmouseout="clearTimer()" data-card="3">工具</div>
+                        <div class="navButton" onclick="switchToCard(4)" onmouseover="startTimer(4)"
+                            onmouseout="clearTimer()" data-card="4">服务</div>
+                    </div>
+
+                    <div class="cardItem active" id="card1">
+                        <div class="grid-container">
+                            <a href="https://www.bilibili.com/" target="_blank" class="grid-item"
+                                data-url="https://www.bilibili.com/">
+                                <img class="icon" src="img/nav/a1.ico" alt="Website Icon">
+                                <span>Bilibili</span>
+                            </a>
+                            <a href="https://www.douyin.com/" target="_blank" class="grid-item"
+                                data-url="https://www.douyin.com/">
+                                <img class="icon" src="img/nav/a2.ico" alt="Website Icon">
+                                <span>抖音</span>
+                            </a>
+                            <a href="https://www.youtube.com/" target="_blank" class="grid-item"
+                                data-url="https://www.youtube.com/">
+                                <img class="icon" src="img/nav/a3.ico" alt="Website Icon">
+                                <span>YouTube</span>
+                            </a>
+                            <a href="https://ddys.pro/" target="_blank" class="grid-item" data-url="https://ddys.pro/">
+                                <img class="icon" src="img/nav/a4.ico" alt="Website Icon">
+                                <span>低端影视</span>
+                            </a>
+                            <a href="https://www.bdys.me/" target="_blank" class="grid-item"
+                                data-url="https://www.bdys.me/">
+                                <img class="icon" src="img/nav/a5.ico" alt="Website Icon">
+                                <span>哔嘀影视</span>
+                            </a>
+                            <a href="http://agedm4.com/" target="_blank" class="grid-item"
+                                data-url="http://agedm4.com/">
+                                <img class="icon" src="img/nav/a6.ico" alt="Website Icon">
+                                <span>AGE动漫</span>
+                            </a>
+                            <a href="https://www.qj90.com/" target="_blank" class="grid-item"
+                                data-url="https://www.qj90.com/">
+                                <img class="icon" src="img/nav/a7.ico" alt="Website Icon">
+                                <span>全集网</span>
+                            </a>
+                            <a href="https://aqdyjd.com/" target="_blank" class="grid-item"
+                                data-url="https://aqdyjd.com/">
+                                <img class="icon" src="img/nav/a8.gif" alt="Website Icon">
+                                <span>电影网</span>
+                            </a>
+                            <a href="https://music.163.com/" target="_blank" class="grid-item"
+                                data-url="https://music.163.com/">
+                                <img class="icon" src="img/nav/a9.ico" alt="Website Icon">
+                                <span>网易云音乐</span>
+                            </a>
+                            <a href="https://v.qq.com/" target="_blank" class="grid-item" data-url="https://v.qq.com/">
+                                <img class="icon" src="img/nav/a10.ico" alt="Website Icon">
+                                <span>腾讯视频</span>
+                            </a>
+                            <a href="https://www.iqiyi.com/" target="_blank" class="grid-item"
+                                data-url="https://www.iqiyi.com/">
+                                <img class="icon" src="img/nav/a11.ico" alt="Website Icon">
+                                <span>爱奇艺</span>
+                            </a>
+                            <a href="https://www.youku.com/" target="_blank" class="grid-item"
+                                data-url="https://www.youku.com/">
+                                <img class="icon" src="img/nav/a12.png" alt="Website Icon">
+                                <span>优酷</span>
+                            </a>
+                            <a href="https://www.mgtv.com/" target="_blank" class="grid-item"
+                                data-url="https://www.mgtv.com/">
+                                <img class="icon" src="img/nav/a13.ico" alt="Website Icon">
+                                <span>芒果TV</span>
+                            </a>
+                            <a href="https://www.douyu.com/" target="_blank" class="grid-item"
+                                data-url="https://www.douyu.com/">
+                                <img class="icon" src="img/nav/a14.png" alt="Website Icon">
+                                <span>斗鱼</span>
+                            </a>
+                            <a href="https://www.huya.com/" target="_blank" class="grid-item"
+                                data-url="https://www.huya.com/">
+                                <img class="icon" src="img/nav/a15.ico" alt="Website Icon">
+                                <span>虎牙</span>
+                            </a>
+                            <a href="https://www.acfun.cn/" target="_blank" class="grid-item"
+                                data-url="https://www.acfun.cn/">
+                                <img class="icon" src="img/nav/a16.ico" alt="Website Icon">
+                                <span>AcFun</span>
+                            </a>
+                            <a href="https://y.qq.com/" target="_blank" class="grid-item" data-url="https://y.qq.com/">
+                                <img class="icon" src="img/nav/a17.ico" alt="Website Icon">
+                                <span>QQ音乐</span>
+                            </a>
+                            <a href="https://www.kugou.com/" target="_blank" class="grid-item"
+                                data-url="https://www.kugou.com/">
+                                <img class="icon" src="img/nav/a18.ico" alt="Website Icon">
+                                <span>酷狗</span>
+                            </a>
+                            <a href="https://music.migu.cn/" target="_blank" class="grid-item"
+                                data-url="https://music.migu.cn/">
+                                <img class="icon" src="img/nav/a19.ico" alt="Website Icon">
+                                <span>咪咕音乐</span>
+                            </a>
+                            <a href="https://www.qingting.fm/" target="_blank" class="grid-item"
+                                data-url="https://www.qingting.fm/">
+                                <img class="icon" src="img/nav/a20.png" alt="Website Icon">
+                                <span>蜻蜓FM</span>
+                            </a>
+                            <a href="http://www.ximalaya.com" target="_blank" class="grid-item"
+                                data-url="http://www.ximalaya.com">
+                                <img class="icon" src="img/nav/a21.ico" alt="Website Icon">
+                                <span>喜马拉雅FM</span>
+                            </a>
+                            <a href="https://www.cikeee.cc/" target="_blank" class="grid-item"
+                                data-url="https://www.cikeee.cc/">
+                                <img class="icon" src="img/nav/a22.ico" alt="Website Icon">
+                                <span>此刻电影日历</span>
+                            </a>
+                            <a href="https://tv.cctv.com/" target="_blank" class="grid-item"
+                                data-url="https://tv.cctv.com/">
+                                <img class="icon" src="img/nav/a23.ico" alt="Website Icon">
+                                <span>央视直播</span>
+                            </a>
+                            <a href="https://www.dy2018.com/" target="_blank" class="grid-item"
+                                data-url="https://www.dy2018.com/">
+                                <img class="icon" src="img/nav/a24.ico" alt="Website Icon">
+                                <span>电影天堂</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cardItem" id="card2">
+                        <div class="grid-container">
+                            <a href="https://thebyrut.org/" target="_blank" class="grid-item"
+                                data-url="https://thebyrut.org/">
+                                <img class="icon" src="img/nav/b1.png" alt="Website Icon">
+                                <span>BYRUTOR</span>
+                            </a>
+                            <a href="https://freetp.org/" target="_blank" class="grid-item"
+                                data-url="https://freetp.org/">
+                                <img class="icon" src="img/nav/b2.png" alt="Website Icon">
+                                <span>FREETP</span>
+                            </a>
+                            <a href="https://www.gamer520.com/" target="_blank" class="grid-item"
+                                data-url="https://www.gamer520.com/">
+                                <img class="icon" src="img/nav/b3.jpg" alt="Website Icon">
+                                <span>Switch520</span>
+                            </a>
+                            <a href="https://www.xygalgame.com/" target="_blank" class="grid-item"
+                                data-url="https://www.xygalgame.com/">
+                                <img class="icon" src="img/nav/b4.jpg" alt="Website Icon">
+                                <span>初音的青葱</span>
+                            </a>
+                            <a href="https://acgyyg.ru/" target="_blank" class="grid-item"
+                                data-url="https://acgyyg.ru/">
+                                <img class="icon" src="img/nav/b5.ico" alt="Website Icon">
+                                <span>ACG嘤嘤怪</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cardItem" id="card3">
+                        <div class="grid-container">
+                            <a href="https://ss.netnr.com/" target="_blank" class="grid-item"
+                                data-url="https://ss.netnr.com/">
+                                <img class="icon" src="img/nav/c1.ico" alt="Website Icon">
+                                <span>脚本服务</span>
+                            </a>
+                            <a href="https://anybt.eth.link/" target="_blank" class="grid-item"
+                                data-url="https://anybt.eth.link/">
+                                <img class="icon" src="img/nav/c2.ico" alt="Website Icon">
+                                <span>AnyBT</span>
+                            </a>
+                            <a href="https://civitai.com/" target="_blank" class="grid-item"
+                                data-url="https://civitai.com/">
+                                <img class="icon" src="img/nav/c3.ico" alt="Website Icon">
+                                <span>CIVITAI</span>
+                            </a>
+                            <a href="https://danbooru.donmai.us/" target="_blank" class="grid-item"
+                                data-url="https://danbooru.donmai.us/">
+                                <img class="icon" src="img/nav/c4.ico" alt="Website Icon">
+                                <span>Danbooru</span>
+                            </a>
+                            <a href="https://stock.hostmonit.com/CloudFlareYes" target="_blank" class="grid-item"
+                                data-url="https://stock.hostmonit.com/CloudFlareYes">
+                                <img class="icon" src="img/nav/c5.ico" alt="Website Icon">
+                                <span>优选IP</span>
+                            </a>
+                            <a href="https://heroicons.dev/" target="_blank" class="grid-item"
+                                data-url="https://heroicons.dev/">
+                                <img class="icon" src="img/nav/c6.svg" alt="Website Icon">
+                                <span>Heroicons</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cardItem" id="card4">
+                        <div class="grid-container">
+                            <a href="https://vercel.com/" target="_blank" class="grid-item"
+                                data-url="https://vercel.com/">
+                                <img class="icon" src="img/nav/d1.ico" alt="Website Icon">
+                                <span>Vercel</span>
+                            </a>
+                            <a href="https://dash.cloudflare.com/" target="_blank" class="grid-item"
+                                data-url="https://dash.cloudflare.com/">
+                                <img class="icon" src="img/nav/d2.ico" alt="Website Icon">
+                                <span>Cloudflare</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Fuling Chen. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top-button" aria-label="返回顶部"><i class="fas fa-arrow-up"></i></button>
+    <button id="backToBottom" class="back-to-bottom-button" aria-label="返回底部"><i class="fas fa-arrow-down"></i></button>
+    <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="切换夜间模式"><i class="fas fa-moon"></i></button>
+
+    <script src="js/script.js" defer></script>
+</body>
+
+</html>
