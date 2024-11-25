@@ -26,6 +26,7 @@ body.dark-mode {
     --font-color: #eeeeeede;
 }
 
+
 /* 设置全局的样式 */
 body {
     min-height: 100vh;
@@ -139,6 +140,8 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+
+
 
 body.dark-mode {
     background-color: #272a29;
@@ -303,11 +306,29 @@ body.dark-mode .loading-spinner:after {
 
 /* 头部样式 */
 /* 开始头部样式 */
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: row !important;    /* 垂直排列 */       
+        justify-content: center;      /* 垂直居中 */
+    }
+
+    #headerLink {
+        margin-left: 20px;
+        padding: 0px;
+        display: flex;
+        flex-wrap: wrap;              /* 允许换行 */
+        justify-content: space-around; /* 水平分布 */
+        flex-direction: column;
+    }
+}
+
+
 header {
-    padding-top: 12px;
-    /* 上边距 */
-    padding-bottom: 12px;
-    /* 下边距 */
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 20px;      
     text-align: center;
     /* 文本居中对齐 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
