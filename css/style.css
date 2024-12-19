@@ -304,9 +304,9 @@ body.dark-mode .loading-spinner:after {
 /* 头部样式 */
 /* 开始头部样式 */
 header {
-    padding-top: 12px;
+    padding-top: 2px;
     /* 上边距 */
-    padding-bottom: 12px;
+    padding-bottom: 6px;
     /* 下边距 */
     text-align: center;
     /* 文本居中对齐 */
