@@ -41,124 +41,7 @@
 
     <main class="container">
         <section id="homepage">
-            <section class="card">
-                <div class="clock"></div>
-                <div class="hitokoto-container"></div>
-            </section>
-
-            <section class="card profile">
-                <img src="https://gcore.jsdelivr.net/gh/0fuling0/source@main/img/avatar.webp" alt="头像">
-                <div class="profile-info">
-                    <h2>Fuling Chen</h2>
-                    <p>@迷宫猫</p>
-                </div>
-                <div class="buttons">
-                    <a href="https://space.bilibili.com/620545781" target="_blank" class="button follow-button">
-                        <i class="fas fa-heart"></i> 关 注
-                    </a>
-                    <a href="https://message.bilibili.com/?spm_id_from=333.999.0.0#/whisper/mid620545781"
-                        target="_blank" class="button message-button">
-                        <i class="fas fa-envelope"></i> 消 息
-                    </a>
-                </div>
-            </section>
-
-            <section class="card">
-                <h3><i class="fas fa-info-circle"></i> 关于我</h3><br>
-                <p>这个人保持低调，热爱简单生活。对于各种事物持平和态度，注重个人空间和独立思考。喜欢追求兴趣爱好，追求内心宁静和平衡。</p>
-            </section>
-
-            <section class="card about">
-                <h3><i class="fas fa-id-card"></i> 个人信息</h3><br>
-                <ul>
-                    <li>姓名: Fuling Chen</li>
-                    <li>职业: ？？？</li>
-                    <li>简介: 似乎没什么可说的。</li><br>
-                </ul>
-            </section>
-
-            <section class="card projects">
-                <h3><i class="fas fa-laptop-code"></i> 个人项目</h3><br>
-                <ul class="project-list">
-                    <li class="project">
-                        <a href="https://www.fuling.me/home/">
-                            <i class="fab fa-github"></i>
-                            <span>个人主页</span>
-                        </a>
-                        <p>项目描述: 具备加载效果、背景图轮播、PWA支持、深色模式、时钟、一言格言轮播以及响应式布局的卡片式个人主页。</p>
-                    </li>
-                    <li class="project">
-                        <a href="https://www.fuling.me/">
-                            <i class="fas fa-desktop"></i>
-                            <span>个人博客</span>
-                        </a>
-                        <p>项目描述: 简单的Hexo博客，使用volantis主题。</p>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="card">
-                <h3><i class="fa-regular fa-image"></i> 图片展示</h3><br><br>
-                <div class="carousel-card">
-                    <button class="next-btn" onclick="nextSlide()">❯</button>
-                    <button class="prev-btn" onclick="prevSlide()">❮</button>
-                    <div class="carousel-container">
-                        <img class="carousel-img">
-                    </div>
-                </div>
-            </section>
-
-            <section class="card about">
-                <h3><i class="fas fa-graduation-cap"></i> 教育背景</h3><br>
-                <ul>
-                    <li>大学: 合肥工业大学</li>
-                    <li>专业: 给排水科学与工程</li>
-                    <li>年份: 2021 - 至今</li>
-                </ul>
-            </section>
-
-            <section class="card contact">
-                <h3><i class="fas fa-address-card"></i> 联系方式</h3><br>
-                <div class="contact-options">
-                    <a href="mailto:chen@fuling.me">
-                        <i class="fas fa-at"></i>
-                        <span>电子邮件</span><br>
-                    </a>
-                    <a href="https://github.com/0fuling0" target="_blank">
-                        <i class="fab fa-github"></i>
-                        <span>Github</span><br>
-                    </a>
-                    <a href="https://space.bilibili.com/620545781" target="_blank">
-                        <i class="fab fa-bilibili"></i>
-                        <span>Bilibili</span>
-                    </a>
-                </div>
-            </section>
-
-            <section class="card about">
-                <h3><i class="fa-solid fa-award"></i> 网站信息</h3><br>
-                <ul>
-                    <li><strong>本站总访问量：</strong><span id="busuanzi_value_site_pv"></span> 次</li>
-                    <li><strong>本站总访客数：</strong><span id="busuanzi_value_site_uv"></span> 人</li>
-                    <li>
-                        <div id="runtime-info-container"></div>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="card music">
-                <h3><i class="fas fa-music"></i> 音乐</h3>
-                <br><br>
-                <div id="aplayer">
-                    <meting-js id="8297186297" server="netease" type="playlist" mutex="true" preload="auto"
-                        order="random"></meting-js>
-                </div>
-            </section>
-
-            <section class="card">
-                <h3><i class='fa-solid fa-comments'></i> 留言</h3><br>
-                <div id="tcomment"></div>
-            </section>
+            <!-- 卡片将通过 JavaScript 动态生成 -->
         </section>
 
         <section id="navpage" style="display:none;">
@@ -207,7 +90,6 @@
     <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="切换夜间模式"><i class="fas fa-moon"></i></button>
 
     <script src="js/script.js" defer></script>
-    <script src="js/cards.js" defer></script>
 </body>
 
 </html>
