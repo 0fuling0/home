@@ -81,13 +81,6 @@ function initBackgroundImage() {
         currentBackgroundImageIndex = parseInt(savedIndex);
     }
     
-    if (backgroundImages && backgroundImages.length > 0) {
-        backgroundImages.forEach(imgSrc => {
-            const img = new Image();
-            img.src = imgSrc;
-        });
-    }
-    
     updateBackgroundImage();
     body.addEventListener('transitionend', function () {
         body.style.transition = '';
